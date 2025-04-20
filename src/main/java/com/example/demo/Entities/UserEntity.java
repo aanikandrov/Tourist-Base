@@ -74,7 +74,6 @@ public class UserEntity implements UserDetails {
         return true;
     }
 
-    // Конструкторы
     public UserEntity() {
     }
 
