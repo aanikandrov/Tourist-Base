@@ -26,23 +26,6 @@ public class RentalObjectService {
 
     private ObjectImageEntity objectImageEntity;
 
-//    @PostConstruct
-//    public void initDefaultItems() {
-//        createItemIfNotExists(1, "Рюкзак", "ITEM", 500);
-//        createItemIfNotExists(2, "Кирка", "ITEM", 700);
-//        createItemIfNotExists(3, "Каска", "ITEM", 300);
-//    }
-//
-//    private void createItemIfNotExists(Integer objectID, String name, String type, Integer price) {
-//        if (!rentalObjectRepository.existsById(Long.valueOf(objectID))) {
-//            RentalObjectEntity item = new RentalObjectEntity();
-//            item.setObjectID(objectID);
-//            item.setObjectName(name);
-//            item.setObjectType(type);
-//            item.setPrice(price);
-//            rentalObjectRepository.save(item);
-//        }
-//    }
 
     public RentalObjectEntity updateRentalObject(Long id, RentalObjectDTO dto) {
         RentalObjectEntity entity = rentalObjectRepository.findById(id)
@@ -95,6 +78,7 @@ public class RentalObjectService {
 
 
     public RentalObjectEntity addRentalObject(RentalObjectEntity rentalObject) {
+        rentalObject.setObjectType("Item");
         return rentalObjectRepository.save(rentalObject);
     }
 

@@ -63,7 +63,7 @@ public class UserController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateUser(
-            @PathVariable Long id,
+            @PathVariable("id") Long id,
             @RequestBody UserUpdateDTO updateDTO) {
         try {
             userService.updateUser(id, updateDTO);
@@ -110,6 +110,17 @@ public class UserController {
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.ok("Пользователь удален");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Ошибка удаления: " + e.getMessage());
         }
     }
 

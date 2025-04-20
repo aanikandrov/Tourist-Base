@@ -8,7 +8,7 @@ CREATE TABLE User_Table (
 );
 
 CREATE TABLE Rental_Object_Table (
-    Object_ID BIGSERIAL PRIMARY KEY,
+    Object_ID BIGSERIAL UNIQUE PRIMARY KEY,
     Object_Name VARCHAR(200) NOT NULL,
     Object_Type VARCHAR(10) NOT NULL,
     Object_Info TEXT,

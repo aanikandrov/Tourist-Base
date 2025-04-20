@@ -5,6 +5,7 @@ import {useAuth} from '../AuthContext';
 import logo from "./assets/MountainsLogo.png";
 
 import "./css/MainPage.css";
+import "./css/UserDesign.css";
 
 const MainPage = () => {
     const {user, logout, loading } = useAuth();
@@ -17,7 +18,7 @@ const MainPage = () => {
     }
 
     if (user.userRole === 'ADMIN') {
-        return <Navigate to="/adminPanel" replace />;
+        return <Navigate to="/admin/users" replace />;
     }
 
     const handleDashboardClick = () => {
@@ -70,7 +71,7 @@ const MainPage = () => {
                 </div>
             </div>
 
-            <header className="header">
+            <header className="main-header">
                 <img src={landscape} alt="Горный пейзаж" className="headerImage" />
                 <div className="headerContent">
                     <h1 className="mainTitle">Открой для себя горы</h1>

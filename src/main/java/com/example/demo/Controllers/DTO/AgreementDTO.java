@@ -8,18 +8,17 @@ public class AgreementDTO {
     private String agreementInfo;
     private Date timeBegin;
     private Date timeEnd;
-    private Integer objectID;
+    private Long userID;
+    private Long objectID;
     private String objectName;
     private Integer sumPrice;
 
 
-
-
-    public Integer getObjectID() {
+    public Long getObjectID() {
         return objectID;
     }
 
-    public void setObjectID(Integer objectID) {
+    public void setObjectID(Long objectID) {
         this.objectID = objectID;
     }
 
@@ -73,5 +72,12 @@ public class AgreementDTO {
         this.timeEnd = timeEnd;
     }
 
+    public Long getUserID() {
+        return userID;
+    }
 
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
 }
+

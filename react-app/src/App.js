@@ -12,6 +12,9 @@ import AboutPage from "./components/AboutPage";
 import InfoPage from "./components/InfoPage";
 import AdminPanel from "./components/AdminPanel";
 import LogoutHandler from './components/LogoutHandler';
+import AdminPanelForUsers from "./components/AdminPanelForUsers";
+import AdminPanelForItems from "./components/AdminPanelForItems";
+import AdminPanelForAgreements from "./components/AdminPanelForAgreements";
 
 
 function App() {
@@ -25,6 +28,10 @@ function App() {
                 <Route path="/register" element={<RegisterForm/>}/>
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/logout" element={<LogoutHandler/>}/>
+
+                <Route path="/admin/users" element={<AdminPanelForUsers />} />
+                <Route path="/admin/items" element={<AdminPanelForItems />} />
+                <Route path="/admin/agreements" element={<AdminPanelForAgreements />} />
 
                 {/* Защищенные маршруты */}
                 <Route path="/itemrent" element={

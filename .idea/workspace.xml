@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="UserEntity fix">
+    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="system files commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/AboutPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AboutPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/RegisterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/AboutPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/AboutPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/AdminPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/AdminPanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/MainPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SQL/CREATE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/CREATE.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SQL/INSERT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/INSERT.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SQL/SELECT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/SELECT.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/AgreementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/AgreementDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RentalObjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RentalObjectDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/AgreementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/AgreementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/RentalObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/RentalObjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/AgreementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/AgreementEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/RentalObjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/RentalObjectEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/RentalObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/RentalObjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +215,7 @@
       <workItem from="1744867806526" duration="613000" />
       <workItem from="1744889872675" duration="21588000" />
       <workItem from="1744922329007" duration="3815000" />
-      <workItem from="1745135785512" duration="21801000" />
+      <workItem from="1745135785512" duration="30822000" />
     </task>
     <task id="LOCAL-00001" summary="Added some files">
       <option name="closed" value="true" />
@@ -237,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745163105422</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="system files commit">
+      <option name="closed" value="true" />
+      <created>1745163863710</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745163863710</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +292,8 @@
     <MESSAGE value="Added some files" />
     <MESSAGE value="Commit 1" />
     <MESSAGE value="UserEntity fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserEntity fix" />
+    <MESSAGE value="system files commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="system files commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

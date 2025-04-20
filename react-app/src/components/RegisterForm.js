@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import logo from "./assets/MountainsLogo.png";
+import './css/UserDesign.css';
 
 const RegisterForm = () => {
     const [userName, setUsername] = useState('');
@@ -97,7 +98,18 @@ const RegisterForm = () => {
 
 
                 {message && <div className="message">{message}</div>}
-                <button type="submit">Зарегистироваться</button>
+
+                <button type="submit"
+                        onClick={() => navigate('/login')}
+                        className = "cancel-button"
+                >
+
+                    Назад
+                </button>
+
+                <button type="submit" >Зарегистироваться</button>
+
+
             </form>
         </div>
     );

@@ -3,7 +3,7 @@ package com.example.demo.Controllers.DTO;
 import java.util.List;
 
 public class RentalObjectDTO {
-    private Integer objectID;
+    private Long objectID;
     private String objectName;
     private Integer price;
     private String objectInfo;
@@ -11,11 +11,11 @@ public class RentalObjectDTO {
 
 
 
-    public Integer getObjectID() {
+    public Long getObjectID() {
         return objectID;
     }
 
-    public void setObjectID(Integer objectID) {
+    public void setObjectID(Long objectID) {
         this.objectID = objectID;
     }
 

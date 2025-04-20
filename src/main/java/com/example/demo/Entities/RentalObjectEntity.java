@@ -12,7 +12,7 @@ public class RentalObjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Object_ID")
-    private Integer objectID;
+    private Long objectID;
 
     @Column(name = "Object_Name", nullable = false, length = 200)
     private String objectName;
@@ -32,16 +32,21 @@ public class RentalObjectEntity {
     public RentalObjectEntity() {
     }
 
-    public RentalObjectEntity(Integer objectID, String objectName, String objectType, String objectInfo, Integer price) {
-        this.objectID = objectID;
+    public RentalObjectEntity(String objectName, Integer price, String objectInfo) {
+        this.objectName = objectName;
+        this.price = price;
+        this.objectInfo = objectInfo;
+        this.objectType = "Item";
+    }
+
+    public RentalObjectEntity(String objectName, String objectType, String objectInfo, Integer price) {
         this.objectName = objectName;
         this.objectType = objectType;
         this.objectInfo = objectInfo;
         this.price = price;
     }
 
-    public RentalObjectEntity(Integer objectID, String objectName, String objectType, String objectInfo, String imagePath, Integer price) {
-        this.objectID = objectID;
+    public RentalObjectEntity(String objectName, String objectType, String objectInfo, String imagePath, Integer price) {
         this.objectName = objectName;
         this.objectType = objectType;
         this.objectInfo = objectInfo;
@@ -54,17 +59,12 @@ public class RentalObjectEntity {
         this.objectType = objectType;
     }
 
-    public RentalObjectEntity(Integer objectID, String objectName, String objectType) {
-        this.objectID = objectID;
-        this.objectName = objectName;
-        this.objectType = objectType;
-    }
 
-    public Integer getObjectID() {
+    public Long getObjectID() {
         return objectID;
     }
 
-    public void setObjectID(Integer objectID) {
+    public void setObjectID(Long objectID) {
         this.objectID = objectID;
     }
 

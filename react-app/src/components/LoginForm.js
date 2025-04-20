@@ -75,8 +75,7 @@ const LoginForm = () => {
                 {success && <div className="success">✅ Login successful! Redirecting...</div>}
                 {error && <div className="error">❌ {error}</div>}
 
-                <button type="submit">Войти
-                </button>
+                <button type="submit">Войти</button>
 
                 <button type="submit" onClick={() => navigate('/register')}>Регистрация
                 </button>

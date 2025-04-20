@@ -48,10 +48,28 @@ public class RentalObjectController {
         return rentalObjectService.getRentalObjectsByUserId(userID);
     }
 
-    @PostMapping
-    public ResponseEntity<RentalObjectEntity> createRentalObject(@RequestBody RentalObjectEntity rentalObject) {
-        RentalObjectEntity createdRentalObject = rentalObjectService.addRentalObject(rentalObject);
-        return ResponseEntity.ok(createdRentalObject);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteRentalObject(@PathVariable("id") Long id) {
+        try {
+            rentalObjectRepository.deleteById(id);
+            return ResponseEntity.ok("Объект удален");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Ошибка удаления");
+        }
+    }
+
+    @PostMapping("/items")
+    public ResponseEntity<RentalObjectEntity> createRentalObject(
+            @RequestBody RentalObjectEntity rentalObject
+    ) {
+        rentalObject.setObjectID(null);
+
+        if (rentalObject.getObjectType() == null) {
+            rentalObject.setObjectType("Item");
+        }
+
+        RentalObjectEntity created = rentalObjectService.addRentalObject(rentalObject);
+        return ResponseEntity.ok(created);
     }
 
     @PutMapping("/{id}/{newName}")
@@ -110,6 +128,8 @@ public class RentalObjectController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
 
 
 }

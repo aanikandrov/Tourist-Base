@@ -49,12 +49,22 @@ public class AgreementController {
 
     @GetMapping("/admin/all")
     @PreAuthorize("hasRole('ADMIN')")
-    public List<AgreementEntity> getAllAgreementsForAdmin() {
-        return agreementRepository.findAllWithDetails();
+    public List<AgreementDTO> getAllAgreementsForAdmin() {
+        return agreementRepository.findAllWithDetails().stream()
+                .map(agreement -> {
+                    AgreementDTO dto = new AgreementDTO();
+                    dto.setAgreementID(agreement.getAgreementID());
+                    dto.setUserID(agreement.getUserID());
+                    dto.setObjectID(agreement.getObjectID());
+                    dto.setTimeBegin(agreement.getTimeBegin());
+                    dto.setTimeEnd(agreement.getTimeEnd());
+                    dto.setAgreementInfo(agreement.getAgreementInfo());
+                    return dto;
+                }).collect(Collectors.toList());
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<AgreementDTO>> getAgreementsByUserId(@PathVariable Long userId) {
+    public ResponseEntity<List<AgreementDTO>> getAgreementsByUserId(@PathVariable("userId") Long userId) {
         List<AgreementEntity> agreements = agreementRepository.findByUserIDWithRentalObject(userId);
 
         List<AgreementDTO> dtos = agreements.stream().map(agreement -> {
@@ -74,7 +84,7 @@ public class AgreementController {
     }
 
     @DeleteMapping("/{agreementId}")
-    public ResponseEntity<?> deleteAgreement(@PathVariable Long agreementId) {
+    public ResponseEntity<?> deleteAgreement(@PathVariable("agreementId") Long agreementId) {
         agreementRepository.deleteById(agreementId);
         return ResponseEntity.ok("Договор успешно удален");
     }

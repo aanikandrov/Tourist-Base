@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAuth} from '../AuthContext';
 import landscape from './assets/landscape_2.jpg';
@@ -35,6 +35,17 @@ const AboutPage = () => {
             event: "Турбаза Курсовая получает статус эко-курорта. Внедрение современных технологий для экологичного туризма."
         }
     ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const image = document.querySelector('.about-header-image');
+            const scrollPosition = window.pageYOffset;
+            image.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="about-container">

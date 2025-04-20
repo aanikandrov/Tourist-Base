@@ -14,3 +14,8 @@ JOIN agreement_table a
 UPDATE user_table
 SET user_role = 'USER'
 WHERE user_role != 'ADMIN';
+
+ALTER SEQUENCE rental_object_table_object_id_seq RESTART WITH 1;
+SELECT setval('rental_object_table_object_id_seq', (SELECT MAX(object_id) FROM rental_object_table));
+
+TRUNCATE TABLE rental_object_table RESTART IDENTITY CASCADE;

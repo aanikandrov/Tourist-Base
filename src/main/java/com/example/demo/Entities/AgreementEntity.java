@@ -18,7 +18,7 @@ public class AgreementEntity {
     private Long userID;
 
     @Column(name = "Object_ID")
-    private Integer objectID;
+    private Long objectID;
 
     @Column(name = "Agreement_Info")
     private String agreementInfo;
@@ -35,7 +35,7 @@ public class AgreementEntity {
     private Integer sumPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "object_id", insertable = false, updatable = false)
+    @JoinColumn(name = "Object_ID", insertable = false, updatable = false)
     private RentalObjectEntity rentalObject;
 
     public RentalObjectEntity getRentalObject() {
@@ -50,8 +50,7 @@ public class AgreementEntity {
     public AgreementEntity() {
     }
 
-    public AgreementEntity(Long agreementID, Long userID, Integer objectID, String eventName, String eventInfo, Date timeBegin, Date timeEnd, Integer sumPrice) {
-        this.agreementID = agreementID;
+    public AgreementEntity(Long userID, Long objectID, String eventName, String eventInfo, Date timeBegin, Date timeEnd, Integer sumPrice) {
         this.userID = userID;
         this.objectID = objectID;
         this.agreementInfo = eventInfo;
@@ -76,11 +75,11 @@ public class AgreementEntity {
         this.userID = userID;
     }
 
-    public Integer getObjectID() {
+    public Long getObjectID() {
         return objectID;
     }
 
-    public void setObjectID(Integer objectID) {
+    public void setObjectID(Long objectID) {
         this.objectID = objectID;
     }
 
