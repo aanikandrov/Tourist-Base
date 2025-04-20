@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="Commit 1" />
+    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="UserEntity fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +58,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Рабочий стол/demo/react-app/src/components/assets",
+    "last_opened_file_path": "D:/Рабочий стол/demo/react-app",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,9 +66,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "project.structure.proportion": "0.16113281",
+    "project.structure.side.proportion": "0.24597701",
+    "settings.editor.selected.configurable": "configurable.group.editor",
     "spring.configuration.checksum": "fe01ce2a7fbac8fafaed7c982a04e229",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.8\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -81,10 +84,10 @@
       <recent name="com.example.demo.controllers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Рабочий стол\demo\react-app" />
       <recent name="D:\Рабочий стол\demo\react-app\src\components\assets" />
       <recent name="D:\Рабочий стол\demo\react-app\src\components\assets\items" />
       <recent name="D:\Рабочий стол\demo\src\main\java\com\example\demo\Config" />
-      <recent name="D:\Рабочий стол\demo\react-app" />
       <recent name="D:\Рабочий стол\demo\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -192,7 +195,7 @@
       <workItem from="1744867806526" duration="613000" />
       <workItem from="1744889872675" duration="21588000" />
       <workItem from="1744922329007" duration="3815000" />
-      <workItem from="1745135785512" duration="20995000" />
+      <workItem from="1745135785512" duration="21801000" />
     </task>
     <task id="LOCAL-00001" summary="Added some files">
       <option name="closed" value="true" />
@@ -218,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745162806153</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="UserEntity fix">
+      <option name="closed" value="true" />
+      <created>1745163067757</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745163067757</updated>
+    </task>
+    <task id="LOCAL-00005" summary="UserEntity fix">
+      <option name="closed" value="true" />
+      <created>1745163105422</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745163105422</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +263,8 @@
     </ignored-roots>
     <MESSAGE value="Added some files" />
     <MESSAGE value="Commit 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 1" />
+    <MESSAGE value="UserEntity fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserEntity fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
