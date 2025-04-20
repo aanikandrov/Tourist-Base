@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="Added some files">
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app" beforeDir="false" afterPath="$PROJECT_DIR$/react-app" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bca5f4dd-2578-4269-a3ef-82182f5dbbc6/console.sql" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2ocQV5BcTXi22K9JZTvDqI5TnpU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Рабочий стол/demo/react-app/src/components/assets",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "fe01ce2a7fbac8fafaed7c982a04e229",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.8\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.demo.controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Рабочий стол\demo\react-app\src\components\assets" />
+      <recent name="D:\Рабочий стол\demo\react-app\src\components\assets\items" />
+      <recent name="D:\Рабочий стол\demo\src\main\java\com\example\demo\Config" />
+      <recent name="D:\Рабочий стол\demo\react-app" />
+      <recent name="D:\Рабочий стол\demo\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Рабочий стол\demo\react-app\src\components\assets\items" />
+      <recent name="D:\Рабочий стол\demo\react-app\src\components" />
+      <recent name="D:\Рабочий стол\demo" />
+      <recent name="D:\Рабочий стол\demo\src" />
+      <recent name="D:\Рабочий стол\demo\react-app\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Unnamed">
+    <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/my-app/src/App.js" working-dir="$PROJECT_DIR$/my-app/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in demo" />
+        <item itemvalue="Node.js.App.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="" />
+      <created>1731166408987</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731166408987</updated>
+      <workItem from="1731166415765" duration="1211000" />
+      <workItem from="1731167753839" duration="555000" />
+      <workItem from="1731168348740" duration="606000" />
+      <workItem from="1731169880860" duration="7886000" />
+      <workItem from="1731340362219" duration="945000" />
+      <workItem from="1731685243601" duration="660000" />
+      <workItem from="1731923735244" duration="3403000" />
+      <workItem from="1731939593519" duration="1245000" />
+      <workItem from="1733588765522" duration="139000" />
+      <workItem from="1740320154055" duration="16053000" />
+      <workItem from="1740409266057" duration="163000" />
+      <workItem from="1740409440046" duration="8133000" />
+      <workItem from="1740545090019" duration="62000" />
+      <workItem from="1740584461914" duration="49000" />
+      <workItem from="1740762793383" duration="6483000" />
+      <workItem from="1740912468786" duration="10921000" />
+      <workItem from="1740997861643" duration="4797000" />
+      <workItem from="1741003713904" duration="1893000" />
+      <workItem from="1741005644717" duration="2773000" />
+      <workItem from="1741111354233" duration="82000" />
+      <workItem from="1741197429879" duration="613000" />
+      <workItem from="1741510063763" duration="5522000" />
+      <workItem from="1741515657274" duration="7157000" />
+      <workItem from="1741539026648" duration="601000" />
+      <workItem from="1741803212231" duration="10934000" />
+      <workItem from="1741882254093" duration="9263000" />
+      <workItem from="1741897005605" duration="1942000" />
+      <workItem from="1741972121642" duration="55000" />
+      <workItem from="1742054446091" duration="4615000" />
+      <workItem from="1742127476273" duration="3562000" />
+      <workItem from="1742131807816" duration="3273000" />
+      <workItem from="1742224862376" duration="7434000" />
+      <workItem from="1742232442429" duration="520000" />
+      <workItem from="1742233836312" duration="764000" />
+      <workItem from="1742317323356" duration="7484000" />
+      <workItem from="1742329569145" duration="2158000" />
+      <workItem from="1742390425767" duration="2524000" />
+      <workItem from="1742409954790" duration="1105000" />
+      <workItem from="1742480710335" duration="15000" />
+      <workItem from="1742481692575" duration="1590000" />
+      <workItem from="1742998241256" duration="110000" />
+      <workItem from="1743003774288" duration="632000" />
+      <workItem from="1744301190061" duration="189000" />
+      <workItem from="1744301423892" duration="6472000" />
+      <workItem from="1744309855652" duration="737000" />
+      <workItem from="1744312446433" duration="2674000" />
+      <workItem from="1744366063233" duration="15313000" />
+      <workItem from="1744565728881" duration="247000" />
+      <workItem from="1744738960540" duration="7822000" />
+      <workItem from="1744747302632" duration="2000" />
+      <workItem from="1744747327649" duration="2308000" />
+      <workItem from="1744813310302" duration="19807000" />
+      <workItem from="1744867806526" duration="613000" />
+      <workItem from="1744889872675" duration="21588000" />
+      <workItem from="1744922329007" duration="3815000" />
+      <workItem from="1745135785512" duration="20597000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added some files">
+      <option name="closed" value="true" />
+      <created>1744867944141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744867944142</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added some files">
+      <option name="closed" value="true" />
+      <created>1745160738788</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745160738788</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/my-app" />
+      <path value="$PROJECT_DIR$/my-react-app" />
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/react-app" />
+    </ignored-roots>
+    <MESSAGE value="Added some files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some files" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

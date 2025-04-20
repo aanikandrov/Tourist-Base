@@ -1,0 +1,105 @@
+
+.info-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contacts-column {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.contacts-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-field label {
+    color: #7f8c8d;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.contact-field input {
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 1em;
+    color: #2c3e50;
+    transition: border-color 0.3s ease;
+}
+
+.contact-field input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.map-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.map-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.map-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.map-btn.google {
+    background: linear-gradient(45deg, #4285f4, #34a853);
+    color: white;
+}
+
+.map-btn.yandex {
+    background: linear-gradient(45deg, #FF0000, #FF9900);
+    color: white;
+}
+
+.map-container {
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .info-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .map-buttons {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,24 @@
+# Java
+target/
+*.iml
+.mvn/
+mvnw
+mvnw.cmd
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# IDE
+.idea/
+.vscode/
+
+# Системные файлы
+.DS_Store
+*.log
+.env
+dist/
+
+# Прочее
+/lib/
+/Scratches and Consoles/

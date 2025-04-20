@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Информация о пользователе</title>
+</head>
+<body>
+<h1>Информация о пользователе</h1>
+<div th:if="${user != null}">
+    <p>ID: <span th:text="${user.userID}"></span></p>
+    <p>Имя пользователя: <span th:text="${user.username}"></span></p>
+    <p>Email: <span th:text="${user.email}"></span></p>
+</div>
+<div th:if="${error != null}">
+    <p th:text="${error}"></p>
+</div>
+</body>
+</html>
