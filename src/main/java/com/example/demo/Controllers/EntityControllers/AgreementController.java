@@ -115,7 +115,7 @@ public class AgreementController {
             return ResponseEntity.badRequest().body("Invalid dates");
 
         AgreementEntity agreement = new AgreementEntity();
-        agreement.setUserID(userCurrent.getUserID());
+        agreement.setUserID(agreementDTO.getUserID());
         agreement.setObjectID(agreementDTO.getObjectID());
         agreement.setTimeBegin(agreementDTO.getTimeBegin());
         agreement.setTimeEnd(agreementDTO.getTimeEnd());
@@ -137,7 +137,17 @@ public class AgreementController {
 
         try {
             AgreementEntity updatedAgreement = agreementService.updateAgreement(id, agreementDTO);
-            return ResponseEntity.ok(updatedAgreement);
+
+            AgreementDTO responseDTO = new AgreementDTO();
+            responseDTO.setAgreementID(updatedAgreement.getAgreementID());
+            responseDTO.setTimeBegin(updatedAgreement.getTimeBegin());
+            responseDTO.setTimeEnd(updatedAgreement.getTimeEnd());
+            responseDTO.setAgreementInfo(updatedAgreement.getAgreementInfo());
+            responseDTO.setSumPrice(updatedAgreement.getSumPrice());
+            responseDTO.setUserID(updatedAgreement.getUserID());
+
+
+            return ResponseEntity.ok(responseDTO);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

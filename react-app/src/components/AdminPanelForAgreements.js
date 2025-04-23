@@ -58,6 +58,22 @@ const AdminPanelForAgreements = () => {
         });
     };
 
+    const handleDeleteAgreement = async () => {
+        try {
+            await axios.delete(`/api/agreement/${editData.agreementID}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            fetchData();
+            handleCloseAgreementModal();
+            alert('Договор успешно удален!');
+        } catch (error) {
+            console.error('Ошибка удаления:', error);
+            alert('Не удалось удалить договор');
+        }
+    };
+
     const handleCreateSubmit = async () => {
         try {
             await axios.post('/api/agreement', newAgreementData, {
@@ -195,7 +211,10 @@ const AdminPanelForAgreements = () => {
                                 onChange={(e) => setNewAgreementData({...newAgreementData, agreementInfo: e.target.value})}
                             />
                         </div>
+
                         <div className="admin-modalButtons">
+
+
                             <button className="admin-cancelButton" onClick={handleCloseCreateModal}>
                                 Отмена
                             </button>
@@ -241,6 +260,14 @@ const AdminPanelForAgreements = () => {
                             />
                         </div>
                         <div className="admin-modalButtons">
+                            <button
+                                className="admin-deleteButton"
+                                onClick={handleDeleteAgreement}
+                                style={{ backgroundColor: '#ff4444', marginLeft: 'auto' }}
+                            >
+                                Удалить
+                            </button>
+
                             <button className="admin-cancelButton" onClick={handleCloseAgreementModal}>
                                 Отмена
                             </button>
