@@ -21,6 +21,12 @@ const ItemRent = () => {
     const [sumPrice, setSumPrice] = useState(0);
     const [itemPrices, setItemPrices] = useState({});
 
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const filteredItems = items.filter(item =>
+        item.text.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     const handleNextImage = () => {
         setCurrentImageIndex(prev =>
             (prev + 1) % selectedItem.images.length
@@ -386,8 +392,34 @@ const ItemRent = () => {
             </div>
 
 
+            <div style={{
+                maxWidth: '1200px',
+                margin: '0 auto 2rem',
+                padding: '0 2rem',
+                marginTop: '1rem'
+            }}>
+                <input
+                    type="text"
+                    placeholder="Поиск по названию..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{
+                        width: '100%',
+                        padding: '1rem',
+                        border: '2px solid #e9ecef',
+                        borderRadius: '25px',
+                        fontSize: '1rem',
+                        outline: 'none',
+                        transition: 'border-color 0.3s',
+                        ':focus': {
+                            borderColor: '#3a86ff'
+                        }
+                    }}
+                />
+            </div>
+
             <div style={styles.itemsGrid}>
-                {items.map((item) => (
+                {filteredItems.map((item) => (
                     <div key={item.id} style={styles.itemCard}>
                         <img
                             src={item.images[0]}

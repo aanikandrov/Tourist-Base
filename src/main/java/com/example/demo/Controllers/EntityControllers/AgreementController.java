@@ -115,7 +115,7 @@ public class AgreementController {
             return ResponseEntity.badRequest().body("Invalid dates");
 
         AgreementEntity agreement = new AgreementEntity();
-        agreement.setUserID(agreementDTO.getUserID());
+        agreement.setUserID(userCurrent.getUserID());
         agreement.setObjectID(agreementDTO.getObjectID());
         agreement.setTimeBegin(agreementDTO.getTimeBegin());
         agreement.setTimeEnd(agreementDTO.getTimeEnd());
