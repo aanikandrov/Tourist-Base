@@ -1,0 +1,159 @@
+/* ItemRent.css - Стили для компонента бронирования */
+
+/* Основной контейнер */
+.item-rent-container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    font-family: 'Open Sans', sans-serif;
+    /*padding: 2rem;*/
+
+    align-items: center;
+    justify-content: center;
+
+
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Сетка элементов */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Карточка объекта */
+.item-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Изображение в карточке */
+.item-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Заголовок объекта */
+.item-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+}
+
+/* Стили для модального окна */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 700px;
+    min-height: 400px;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Секции модального окна */
+.modal-image-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 250px;
+}
+
+/* Элементы формы */
+.rental-input-group {
+    margin-bottom: 1.5rem;
+}
+
+.rental-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.rental-input:focus {
+    outline: none;
+    border-color: #3a86ff;
+}
+
+/* Стили для поиска */
+.search-input {
+    width: 50%;
+    padding: 1rem;
+    max-width: 1200px;
+
+
+    align-items: center;
+
+    border: 2px solid #e9ecef;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+}
+
+.search-input:focus {
+    border-color: #3a86ff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        min-height: auto;
+    }
+
+    .modal-form-section {
+        width: 100%;
+    }
+}

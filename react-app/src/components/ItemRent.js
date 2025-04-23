@@ -2,8 +2,12 @@ import React, {useEffect, useState} from 'react';
 import defaultImage from './assets/defaultImage.png';
 import {useNavigate} from "react-router-dom";
 import logo from "./assets/MountainsLogo.png";
-import "./css/MainPage.css";
+
 import {useAuth} from "../AuthContext";
+
+import "./css/MainPage.css";
+import "./css/UserDesign.css";
+import "./css/ItemRent.css";
 
 const ItemRent = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -147,289 +151,55 @@ const ItemRent = () => {
             });
     };
 
-    const styles = {
-        container: {
-            minHeight: '100vh',
-            background: 'linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%)',
-            fontFamily: "'Open Sans', sans-serif",
-            padding: '2rem',
-        },
-        topBar: {
-            backgroundColor: 'white',
-            padding: '1rem 2rem',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '3rem',
-            borderRadius: '15px',
-        },
-        backButton: {
-            background: 'linear-gradient(135deg, #3a86ff 0%, #0066ff 100%)',
-            color: 'white',
-            padding: '0.8rem 2rem',
-            borderRadius: '25px',
-            border: 'none',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            fontWeight: 600,
-            transition: 'transform 0.2s',
-            ':hover': {
-                transform: 'translateY(-2px)',
-            },
-        },
-        itemsGrid: {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: '2rem',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '2rem',
-        },
-        itemCard: {
-            background: 'white',
-            borderRadius: '15px',
-            padding: '1.5rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-            transition: 'transform 0.3s',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            ':hover': {
-                transform: 'translateY(-5px)',
-            },
-        },
-        itemImage: {
-            width: '200px',
-            height: '200px',
-            objectFit: 'contain',
-            borderRadius: '10px',
-            marginBottom: '1rem',
-        },
-        itemTitle: {
-            fontSize: '1.3rem',
-            fontWeight: 600,
-            color: '#1a365d',
-            marginBottom: '0.5rem',
-        },
-        priceText: {
-            color: '#3a86ff',
-            fontSize: '1.1rem',
-            fontWeight: 500,
-            marginBottom: '1rem',
-        },
-        detailsButton: {
-            background: 'linear-gradient(135deg, #3a86ff 0%, #0066ff 100%)',
-            color: 'white',
-            padding: '0.8rem 1.5rem',
-            borderRadius: '25px',
-            border: 'none',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            fontWeight: 600,
-            width: '100%',
-            transition: 'opacity 0.3s',
-            ':hover': {
-                opacity: 0.9,
-            },
-        },
-        modalOverlay: {
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 1000,
-        },
-        modalContent: {
-            backgroundColor: 'white',
-            borderRadius: '15px',
-            padding: '2rem',
-            marginRight: '15px',
-            width: '700px',
-            minHeight: '400px',
-            display: 'flex',
-            gap: '2rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-        },
-        modalHeader: {
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            color: '#1a365d',
-            marginBottom: '1rem',
-            textAlign: 'center',
-        },
-        modalImage: {
-            width: '250px',
-            height: '250px',
-            objectFit: 'contain',
-            borderRadius: '10px',
-            margin: '0 auto 1.5rem',
-            alignSelf: 'center',
-        },
-        inputGroup: {
-            marginBottom: '1.5rem',
-        },
-        dateInput: {
-            width: '100%',
-            padding: '0.8rem',
-            border: '2px solid #e9ecef',
-            borderRadius: '8px',
-            fontSize: '1rem',
-        },
-
-        label: {
-            display: 'block',
-            marginBottom: '0.8rem',
-            color: '#2d3436',
-            fontWeight: 500,
-        },
-        input: {
-            width: '100%',
-            padding: '0.8rem',
-            border: '2px solid #e9ecef',
-            borderRadius: '8px',
-            fontSize: '1rem',
-            transition: 'border-color 0.3s',
-            ':focus': {
-                outline: 'none',
-                borderColor: '#3a86ff',
-            },
-        },
-        description: {
-            textAlign: 'center',
-            color: '#2d3436',
-            fontSize: '0.9rem',
-            marginBottom: '1rem',
-        },
-        priceBadge: {
-            backgroundColor: '#e3f2fd',
-            color: '#1a365d',
-            padding: '0.5rem 4rem',
-            borderRadius: '20px',
-            fontWeight: 600,
-        },
-        totalPrice: {
-            fontSize: '1.2rem',
-            fontWeight: 700,
-            color: '#1a365d',
-            textAlign: 'center',
-            margin: '1.5rem 0',
-        },
-        modalButtons: {
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'flex-end',
-        },
-        formSection: {
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-        },
-        cancelButton: {
-            background: '#e9ecef',
-            color: '#2d3436',
-            padding: '0.8rem 1.5rem',
-            borderRadius: '25px',
-            ':hover': {
-                background: '#dee2e6',
-            },
-        },
-        submitButton: {
-            background: 'linear-gradient(135deg, #3a86ff 0%, #0066ff 100%)',
-            color: 'white',
-            padding: '0.8rem 1.5rem',
-            borderRadius: '25px',
-        },
-    };
-
     return (
-        <div className="container">
-
-            <div className="topBar">
-                <div className="logoContainer">
+        <div className="item-rent-container">
+            <div className="top-bar">
+                <div className="logo-container">
                     <img src={logo} alt="Логотип Турбазы" className="logo" />
-                    <span className="logoText">Турбаза Курсовая</span>
+                    <span className="logo-text">Турбаза Курсовая</span>
                 </div>
 
-                <div className="navButtons">
-                    <button
-                        className="navButton"
-                        onClick={() => navigate('/main')}
-                    >
+                <div className="nav-buttons">
+                    <button className="navButton" onClick={() => navigate('/main')}>
                         Главная
                     </button>
-                    <button
-                        className="navButton bold"
-                        onClick={() => navigate('/itemrent')}
-                    >
+                    <button className="navButton bold" onClick={() => navigate('/itemrent')}>
                         Бронирование
                     </button>
-                    <button
-                        className="navButton"
-                        onClick={() => navigate('/about')}
-                    >
+                    <button className="navButton" onClick={() => navigate('/about')}>
                         О нас
                     </button>
-                    <button
-                        className="navButton"
-                        onClick={() => navigate('/info')}
-                    >
+                    <button className="navButton" onClick={() => navigate('/info')}>
                         Контакты
                     </button>
-                    <button
-                        className="navButton dashboardButton"
-                        onClick={() => navigate('/userPanel')}
-                    >
+                    <button className="navButton dashboardButton" onClick={() => navigate('/userPanel')}>
                         Личный кабинет
                     </button>
                 </div>
             </div>
 
-
-            <div style={{
-                maxWidth: '1200px',
-                margin: '0 auto 2rem',
-                padding: '0 2rem',
-                marginTop: '1rem'
-            }}>
+            <div className="search-container">
                 <input
                     type="text"
                     placeholder="Поиск по названию..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    style={{
-                        width: '100%',
-                        padding: '1rem',
-                        border: '2px solid #e9ecef',
-                        borderRadius: '25px',
-                        fontSize: '1rem',
-                        outline: 'none',
-                        transition: 'border-color 0.3s',
-                        ':focus': {
-                            borderColor: '#3a86ff'
-                        }
-                    }}
+                    className="search-input"
                 />
             </div>
 
-            <div style={styles.itemsGrid}>
+            <div className="items-grid">
                 {filteredItems.map((item) => (
-                    <div key={item.id} style={styles.itemCard}>
+                    <div key={item.id} className="item-card">
                         <img
                             src={item.images[0]}
                             alt={item.text}
-                            style={styles.itemImage}
+                            className="item-image"
                         />
-                        <h3 style={styles.itemTitle}>{item.text}</h3>
-                        <p style={styles.priceText}>Цена за день: {itemPrices[item.id]} ₽</p>
+                        <h3 className="item-title">{item.text}</h3>
+                        <p className="price-text">Цена за день: {itemPrices[item.id]} ₽</p>
                         <button
-                            style={styles.detailsButton}
+                            className="details-button"
                             onClick={() => handleOpenModal(item)}
                         >
                             Забронировать
@@ -439,35 +209,16 @@ const ItemRent = () => {
             </div>
 
             {isModalOpen && selectedItem && (
-                <div style={styles.modalOverlay}>
-                    <div style={styles.modalContent}>
-                        {/* Левая секция с изображением */}
-                        <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-                            <h2 style={styles.modalHeader}>{selectedItem.text}</h2>
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <div className="modal-image-section">
+                            <h2 className="modal-header">{selectedItem.text}</h2>
 
-                            {/* Галерея с центрированным изображением */}
-                            <div style={{
-                                position: 'relative',
-                                flex: 1,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                margin: '1rem 0'
-                            }}>
+                            <div className="image-gallery">
                                 {selectedItem.images.length > 1 && (
                                     <button
                                         onClick={handlePrevImage}
-                                        style={{
-                                            position: 'absolute',
-                                            left: 10,
-                                            padding: '8px 12px',
-                                            background: 'rgba(0,0,0,0.5)',
-                                            color: 'white',
-                                            border: 'none',
-                                            borderRadius: '5px',
-                                            cursor: 'pointer',
-                                            zIndex: 2
-                                        }}
+                                        className="nav-button prev"
                                     >
                                         ←
                                     </button>
@@ -476,105 +227,67 @@ const ItemRent = () => {
                                 <img
                                     src={selectedItem.images[currentImageIndex]}
                                     alt={selectedItem.text}
-                                    style={{
-                                        ...styles.modalImage,
-                                        maxWidth: '100%',
-                                        position: 'relative',
-                                        zIndex: 1
-                                    }}
+                                    className="modal-image"
                                 />
 
                                 {selectedItem.images.length > 1 && (
                                     <button
                                         onClick={handleNextImage}
-                                        style={{
-                                            position: 'absolute',
-                                            right: 10,
-                                            padding: '8px 12px',
-                                            background: 'rgba(0,0,0,0.5)',
-                                            color: 'white',
-                                            border: 'none',
-                                            borderRadius: '5px',
-                                            cursor: 'pointer',
-                                            zIndex: 2
-                                        }}
+                                        className="nav-button next"
                                     >
                                         →
                                     </button>
                                 )}
                             </div>
 
-                            {/* Цена за день */}
-                            <div style={styles.priceBadge}>
+                            <div className="price-badge">
                                 Цена за день: {itemPrices[selectedItem.id]} руб.
                             </div>
                         </div>
 
-                        {/* Правая секция с формой */}
-                        <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '250px'}}>
-                            {/* Поля ввода дат */}
-                            <div style={styles.inputGroup}>
-                                <label style={styles.label}>Дата начала:</label>
+                        <div className="modal-form-section">
+                            <div className="rental-input-group">
+                                <label>Дата начала:</label>
                                 <input
                                     type="date"
                                     name="startDate"
-                                    style={{...styles.input, width: '80%'}}
+                                    className="rental-input"
                                     value={formData.startDate}
                                     onChange={handleInputChange}
                                 />
                             </div>
 
-                            <div style={styles.inputGroup}>
-                                <label style={styles.label}>Дата окончания:</label>
+                            <div className="rental-input-group">
+                                <label>Дата окончания:</label>
                                 <input
                                     type="date"
                                     name="endDate"
-                                    style={{...styles.input, width: '80%'}}
+                                    className="rental-input"
                                     value={formData.endDate}
                                     onChange={handleInputChange}
                                 />
                             </div>
 
-                            <div style={styles.inputGroup}>
-                                <label style={styles.label}>Дополнительная информация:</label>
+                            <div className="rental-input-group">
+                                <label>Дополнительная информация:</label>
                                 <textarea
                                     name="info"
-                                    style={{ ...styles.input, width: '80%', height: '100%', resize: 'none' }}
+                                    className="rental-input textarea"
                                     onChange={handleInputChange}
                                     maxLength={255}
                                     rows={4}
                                 />
                             </div>
 
-                            {/* Сумма аренды */}
-                            <div style={{
-                                padding: '1.3rem',
-                                borderRadius: '8px',
-                                textAlign: 'center',
-                                fontSize: '1.1rem',
-                                fontWeight: 600,
-                                color: '#1a365d'
-                            }}>
+                            <div className="total-price">
                                 {sumPrice > 0 ? `Сумма аренды: ${sumPrice} ₽` : ''}
                             </div>
 
-                            {/* Кнопки */}
-                            <div style={{
-                                display: 'flex',
-                                gap: '1rem',
-                                justifyContent: 'flex-end',
-                                marginTop: 'auto'
-                            }}>
-                                <button
-                                    style={styles.cancelButton}
-                                    onClick={handleCloseModal}
-                                >
+                            <div className="modal-buttons">
+                                <button className="cancel-button" onClick={handleCloseModal}>
                                     Отмена
                                 </button>
-                                <button
-                                    style={styles.submitButton}
-                                    onClick={handleSubmit}
-                                >
+                                <button className="save-button" onClick={handleSubmit}>
                                     Подтвердить
                                 </button>
                             </div>
