@@ -3,6 +3,12 @@ import defaultImage from './assets/defaultImage.png';
 import {useNavigate} from "react-router-dom";
 import logo from "./assets/MountainsLogo.png";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { addDays, isBefore, isAfter, eachDayOfInterval, format } from "date-fns";
+import "react-datepicker/dist/react-datepicker.css";
+
 import {useAuth} from "../AuthContext";
 
 import "./css/MainPage.css";
@@ -20,6 +26,7 @@ const ItemRent = () => {
     const navigate = useNavigate();
     const {user} = useAuth();
 
+    const [currentType, setCurrentType] = useState('items');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [items, setItems] = useState([]);
     const [sumPrice, setSumPrice] = useState(0);
@@ -31,25 +38,17 @@ const ItemRent = () => {
         item.text.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const handleNextImage = () => {
-        setCurrentImageIndex(prev =>
-            (prev + 1) % selectedItem.images.length
-        );
-    };
-
-    const handlePrevImage = () => {
-        setCurrentImageIndex(prev =>
-            (prev - 1 + selectedItem.images.length) % selectedItem.images.length
-        );
-    };
-
+    const [availability, setAvailability] = useState({});
+    const [isLoadingAvailability, setIsLoadingAvailability] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/rental/items', {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
+        const headers = {};
+        const token = localStorage.getItem('token');
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        fetch(`http://localhost:8080/api/rental/${currentType}`, { headers })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -63,6 +62,7 @@ const ItemRent = () => {
                     buttonText: 'Забронировать',
                     image: item.imagePath ? `${process.env.PUBLIC_URL}/assets/${item.imagePath}` : defaultImage,
                     objectInfo: item.objectInfo,
+
                     images: item.imagePaths?.length > 0
                         ? item.imagePaths.map(path => require(`./assets/${path}`))
                         : [defaultImage]
@@ -70,22 +70,79 @@ const ItemRent = () => {
                 setItems(itemsWithImages);
 
                 const prices = {};
-                data.forEach(item => prices[item.objectID] = item.price);
+                data.forEach(item => {
+                    prices[item.objectID] = item.price;
+                });
                 setItemPrices(prices);
             })
             .catch(error => {
                 console.error('Ошибка загрузки данных:', error);
                 alert('Не удалось загрузить данные об объектах');
             });
-    }, []);
+    }, [currentType]);
+
+
+    const handleNextImage = () => {
+        setCurrentImageIndex(prev =>
+            (prev + 1) % selectedItem.images.length
+        );
+    };
+
+
+
+
+    const getAvailability = async (objectId) => {
+        setIsLoadingAvailability(true);
+        try {
+            const token = localStorage.getItem('token');
+            const response = await fetch(
+                `http://localhost:8080/api/agreement/availability/${objectId}`,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            setAvailability(data);
+        } catch (error) {
+            console.error("Error fetching availability:", error);
+            setAvailability({});
+        } finally {
+            setIsLoadingAvailability(false);
+        }
+    };
+
+    const isDateDisabled = (date) => {
+        const dayStr = format(date, "yyyy-MM-dd");
+        return !availability[dayStr]?.available;
+    };
+
+    const handlePrevImage = () => {
+        setCurrentImageIndex(prev =>
+            (prev - 1 + selectedItem.images.length) % selectedItem.images.length
+        );
+    };
+
+
+
 
     const calculateSum = (startDate, endDate, itemId) => {
         if (!startDate || !endDate || !itemPrices[itemId]) return 0;
 
         const start = new Date(startDate);
         const end = new Date(endDate);
+        // Добавьте проверку на валидность дат
+        if (isNaN(start.getTime()) || isNaN(end.getTime())) return 0;
+
         const diff = end.getTime() - start.getTime();
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24)) + 1; // Исправлено на Math.ceil
 
         return days * itemPrices[itemId];
     };
@@ -99,6 +156,7 @@ const ItemRent = () => {
         setCurrentImageIndex(0);
         setSelectedItem(item);
         setIsModalOpen(true);
+        getAvailability(item.id);
     };
 
     const handleCloseModal = () => {
@@ -111,13 +169,48 @@ const ItemRent = () => {
         const {name, value} = e.target;
         setFormData(prev => {
             const newData = {...prev, [name]: value};
-            const newSum = calculateSum(newData.startDate, newData.endDate, selectedItem?.id);
-            setSumPrice(newSum);
+            // Добавьте проверку на существование selectedItem
+            if (selectedItem) {
+                const newSum = calculateSum(newData.startDate, newData.endDate, selectedItem.id);
+                setSumPrice(newSum);
+            }
             return newData;
         });
     };
 
+    const DayComponent = ({ date, selectedDate }) => {
+        const dayStr = format(date, "yyyy-MM-dd");
+        const isAvailable = availability[dayStr]?.available;
+
+        return (
+            <div
+                className={`react-datepicker__day ${
+                    isAvailable
+                        ? "react-datepicker__day--available"
+                        : "react-datepicker__day--unavailable"
+                }`}
+            >
+                {date.getDate()}
+            </div>
+        );
+    };
+
     const handleSubmit = () => {
+
+        const start = new Date(formData.startDate);
+        const end = new Date(formData.endDate);
+        const days = eachDayOfInterval({ start, end });
+
+        const hasUnavailable = days.some(day => {
+            const dayStr = format(day, "yyyy-MM-dd");
+            return !availability[dayStr]?.available;
+        });
+
+        if (hasUnavailable) {
+            alert("Выбранные даты содержат недоступные периоды!");
+            return;
+        }
+
         fetch('http://localhost:8080/api/agreement', {
             method: 'POST',
             headers: {
@@ -129,13 +222,19 @@ const ItemRent = () => {
                 timeBegin: formData.startDate,
                 timeEnd: formData.endDate,
                 agreementInfo: formData.info,
-                sumPrice: formData.sumPrice
+                sumPrice: formData.sumPrice,
+                maxCount: formData.maxCount
             })
         })
             .then(response => {
                 if (!response.ok) {
                     return response.text().then(text => {
-                        throw new Error(`HTTP ${response.status}: ${text}`);
+                        if (text.includes("Предмет кончился!")) {
+                            alert("Предмет кончился!");
+                            throw new Error("Items dates conflict");
+                        } else {
+                            throw new Error(`HTTP ${response.status}: ${text}`);
+                        }
                     });
                 }
                 return response.json();
@@ -146,8 +245,10 @@ const ItemRent = () => {
                 alert('Бронирование успешно создано!');
             })
             .catch(error => {
-                console.error('Error:', error);
-                alert(`Ошибка: ${error.message}`);
+                if (error.message !== "Items dates conflict") {
+                    console.error('Error:', error);
+                    alert(error.message);
+                }
             });
     };
 
@@ -176,6 +277,21 @@ const ItemRent = () => {
                         Личный кабинет
                     </button>
                 </div>
+            </div>
+
+            <div className="type-toggle">
+                <button
+                    className={`type-button ${currentType === 'items' ? 'active' : ''}`}
+                    onClick={() => setCurrentType('items')}
+                >
+                    Предметы
+                </button>
+                <button
+                    className={`type-button ${currentType === 'habitations' ? 'active' : ''}`}
+                    onClick={() => setCurrentType('habitations')}
+                >
+                    Проживание
+                </button>
             </div>
 
             <div className="search-container">
@@ -213,59 +329,92 @@ const ItemRent = () => {
                     <div className="modal-content">
                         <div className="modal-image-section">
                             <h2 className="modal-header">{selectedItem.text}</h2>
-
-                            <div className="image-gallery">
-                                {selectedItem.images.length > 1 && (
-                                    <button
-                                        onClick={handlePrevImage}
-                                        className="nav-button prev"
-                                    >
-                                        ←
-                                    </button>
-                                )}
-
+                            <div className={`modal-image-section ${currentType === 'habitations' ? 'habitation' : ''}`}>
                                 <img
                                     src={selectedItem.images[currentImageIndex]}
                                     alt={selectedItem.text}
-                                    className="modal-image"
+                                    className={`modal-image ${currentType === 'habitations' ? 'habitation' : ''}`}
                                 />
-
-                                {selectedItem.images.length > 1 && (
-                                    <button
-                                        onClick={handleNextImage}
-                                        className="nav-button next"
-                                    >
-                                        →
-                                    </button>
-                                )}
+                                <div className="image-gallery">
+                                    {selectedItem.images.length > 1 && (
+                                        <button onClick={handlePrevImage} className="nav-button prev">
+                                            ←
+                                        </button>
+                                    )}
+                                    {selectedItem.images.length > 1 && (
+                                        <button onClick={handleNextImage} className="nav-button next">
+                                            →
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="price-badge">
+                                Цена за день: {itemPrices[selectedItem.id]} руб.
                             </div>
 
                             <div className="price-badge">
-                                Цена за день: {itemPrices[selectedItem.id]} руб.
+                                Описание: {selectedItem.objectInfo}
                             </div>
                         </div>
 
                         <div className="modal-form-section">
-                            <div className="rental-input-group">
-                                <label>Дата начала:</label>
-                                <input
-                                    type="date"
-                                    name="startDate"
-                                    className="rental-input"
-                                    value={formData.startDate}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
 
                             <div className="rental-input-group">
-                                <label>Дата окончания:</label>
-                                <input
-                                    type="date"
-                                    name="endDate"
-                                    className="rental-input"
-                                    value={formData.endDate}
-                                    onChange={handleInputChange}
-                                />
+
+                                {isLoadingAvailability ? (
+                                    <div>Загрузка данных...</div>
+                                ) : (
+                                    <DatePicker
+                                        inline
+                                        selectsRange
+                                        startDate={formData.startDate ? new Date(formData.startDate) : null}
+                                        endDate={formData.endDate ? new Date(formData.endDate) : null}
+                                        onChange={(dates) => {
+                                            const [start, end] = dates;
+                                            if (start && isDateDisabled(start)) return;
+                                            if (end && isDateDisabled(end)) return;
+                                            setFormData(prev => ({
+                                                ...prev,
+                                                startDate: start ? format(start, "yyyy-MM-dd") : "",
+                                                endDate: end ? format(end, "yyyy-MM-dd") : ""
+                                            }));
+                                        }}
+                                        dayClassName={(date) => {
+                                            const dayStr = format(date, "yyyy-MM-dd");
+                                            return availability[dayStr]?.available
+                                                ? "react-datepicker__day--available"
+                                                : "react-datepicker__day--unavailable";
+                                        }}
+                                        renderDayContents={(day, date) => (
+                                            <DayComponent date={date} selectedDate={date} />
+                                        )}
+                                    />
+                                )}
+                            </div>
+
+                            <div className="date-range-group">
+                                <div className="rental-input-group" style={{flex: 1}}>
+
+                                    <input
+                                        type="date"
+                                        name="startDate"
+                                        className="rental-input"
+                                        value={formData.startDate}
+                                        onChange={handleInputChange}
+                                        readOnly
+                                    />
+                                </div>
+                                <div className="rental-input-group" style={{flex: 1}}>
+
+                                    <input
+                                        type="date"
+                                        name="endDate"
+                                        className="rental-input"
+                                        value={formData.endDate}
+                                        onChange={handleInputChange}
+                                        readOnly
+                                    />
+                                </div>
                             </div>
 
                             <div className="rental-input-group">
@@ -279,8 +428,8 @@ const ItemRent = () => {
                                 />
                             </div>
 
-                            <div className="total-price">
-                                {sumPrice > 0 ? `Сумма аренды: ${sumPrice} ₽` : ''}
+                            <div className="price-badge">
+                                {sumPrice > 0 ? `Сумма аренды: ${sumPrice} ₽` : 'Выберите даты для расчета'}
                             </div>
 
                             <div className="modal-buttons">

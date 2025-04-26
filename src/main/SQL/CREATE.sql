@@ -13,6 +13,7 @@ CREATE TABLE Rental_Object_Table (
     Object_Type VARCHAR(10) NOT NULL,
     Object_Info TEXT,
     Price INT, -- rent price in rubles (for day)
+    Max_Count INT,
     Image_Path VARCHAR(255)
 );
 

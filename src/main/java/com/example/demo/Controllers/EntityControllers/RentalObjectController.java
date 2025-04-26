@@ -37,6 +37,12 @@ public class RentalObjectController {
         return ResponseEntity.ok(items);
     }
 
+    @GetMapping("/habitations")
+    public ResponseEntity<List<RentalObjectDTO>> getHabitations() {
+        List<RentalObjectDTO> habitations = rentalObjectService.findByObjectTypeDTO("Habitation");
+        return ResponseEntity.ok(habitations);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<RentalObjectDTO>> getAllRentalObjects() {
         List<RentalObjectDTO> rentals = rentalObjectService.getAllRentalObjects();
@@ -66,6 +72,10 @@ public class RentalObjectController {
 
         if (rentalObject.getObjectType() == null) {
             rentalObject.setObjectType("Item");
+        }
+
+        if (rentalObject.getMaxCount() == null) {
+            rentalObject.setMaxCount(1);
         }
 
         RentalObjectEntity created = rentalObjectService.addRentalObject(rentalObject);

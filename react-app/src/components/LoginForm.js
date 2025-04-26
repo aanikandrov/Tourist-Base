@@ -77,9 +77,9 @@ const LoginForm = () => {
 
                 <button type="submit">Войти</button>
 
-                <button type="submit" onClick={() => navigate('/register')}>Регистрация
-                </button>
 
+                <button type="submit" onClick={() => navigate('/register')}>Регистрация</button>
+                <button type="submit" onClick={() => navigate('/main')}>На главную</button>
 
             </form>
         </div>

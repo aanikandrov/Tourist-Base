@@ -31,14 +31,35 @@
     border-radius: 15px;
     padding: 1.5rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.item-card:hover {
-    transform: translateY(-5px);
+.item-card.habitation .item-image {
+    width: 300px;
+    height: 300px;
+}
+
+/* Для модального окна */
+.modal-image-section.habitation .modal-image {
+    width: 400px;
+    height: 400px;
+}
+
+.image-gallery {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.modal-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
 /* Изображение в карточке */
@@ -48,6 +69,10 @@
     object-fit: contain;
     border-radius: 10px;
     margin-bottom: 1rem;
+}
+
+.price-badge {
+    margin-top: 1rem;
 }
 
 /* Заголовок объекта */
@@ -76,9 +101,11 @@
     background-color: white;
     border-radius: 15px;
     padding: 2rem;
-    width: 700px;
-    min-height: 400px;
+    width: 800px;
+    height: 600px;
+    /*min-height: 400px;*/
     display: flex;
+    overflow: auto;
     gap: 2rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
@@ -88,23 +115,56 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.modal-form-section {
-    flex: 1;
+.type-toggle {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 250px;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
 }
 
-/* Элементы формы */
-.rental-input-group {
+.type-button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    background: #e9ecef;
+    color: #1a365d;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.type-button.active {
+    background: #3a86ff;
+    color: white;
+    box-shadow: 0 4px 15px rgba(58, 134, 255, 0.3);
+}
+
+
+
+.modal-form-section .date-range-group {
+    display: flex;
+    gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
+.modal-form-section .date-range-group .rental-input {
+    width: 55%;
+}
+
+
+
+.nav-button-arrow {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+}
+
 .rental-input {
-    width: 100%;
+    width: 60%;
     padding: 0.8rem;
     border: 2px solid #e9ecef;
     border-radius: 8px;
@@ -156,4 +216,87 @@
     .modal-form-section {
         width: 100%;
     }
+}
+
+
+
+
+
+
+/* Календарь - квадратный контейнер */
+.react-datepicker {
+    max-width: 350px;
+    border: 1px solid #e0e0e0 !important;
+    padding: 12px;
+    border-radius: 8px !important;
+}
+
+/* Заголовок календаря */
+.react-datepicker__header {
+    background: none !important;
+    border: none !important;
+    padding: 0 8px 12px 8px;
+}
+
+/* Сетка дней - 7 колонок */
+.react-datepicker__month {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+.react-datepicker__week {
+    display: flex !important;
+    gap: 4px !important;
+}
+
+
+/* Дни недели - 7 колонок */
+.react-datepicker__day-names {
+    display: flex !important;
+    gap: 4px !important;
+    margin-bottom: 8px !important;
+}
+
+.react-datepicker__day-name {
+    width: 44px !important;
+    margin: 0 !important;
+    text-align: center;
+}
+
+/* Стиль дня */
+.react-datepicker__day {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 4px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+}
+
+/* Стили для статусов */
+.react-datepicker__day--available {
+    background-color: #e8f5e9 !important;
+    color: #2e7d32 !important;
+}
+
+.react-datepicker__day--unavailable {
+    background-color: #ffebee !important;
+    color: #c62828 !important;
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+}
+
+
+/* Выбранный диапазон */
+.react-datepicker__day--in-range {
+    background-color: #3a86ff !important;
+    color: white !important;
+    border-radius: 4px !important;
+}
+
+/* Текущий день */
+.react-datepicker__day--today {
+    font-weight: bold;
+    border: 2px solid #3a86ff !important;
 }

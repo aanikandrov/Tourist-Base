@@ -6,6 +6,8 @@ public class RentalObjectDTO {
     private Long objectID;
     private String objectName;
     private Integer price;
+
+    private Integer maxCount;
     private String objectInfo;
     private List<String> imagePaths;
 
@@ -41,6 +43,14 @@ public class RentalObjectDTO {
 
     public void setObjectInfo(String objectInfo) {
         this.objectInfo = objectInfo;
+    }
+
+    public Integer getMaxCount() {
+        return maxCount;
+    }
+
+    public void setMaxCount(Integer maxCount) {
+        this.maxCount = maxCount;
     }
 
     public List<String> getImagePaths() {

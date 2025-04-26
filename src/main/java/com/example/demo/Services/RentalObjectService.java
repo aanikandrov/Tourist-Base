@@ -23,7 +23,6 @@ public class RentalObjectService {
     private RentalObjectRepository rentalObjectRepository;
     @Autowired
     private AgreementRepository agreementRepository;
-
     private ObjectImageEntity objectImageEntity;
 
 

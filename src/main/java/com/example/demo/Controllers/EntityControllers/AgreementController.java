@@ -10,6 +10,8 @@ import com.example.demo.Repository.RentalObjectRepository;
 import com.example.demo.Repository.UserRepository;
 import com.example.demo.Services.AgreementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,11 +29,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/agreement")
 public class AgreementController {
     private final AgreementService agreementService;
-
     private final AgreementRepository agreementRepository;
-
     private final RentalObjectRepository rentalObjectRepository;
-
     private final UserRepository userRepository;
 
     @Autowired
@@ -97,7 +96,7 @@ public class AgreementController {
         UserEntity userCurrent = userRepository.findByuserName(user.getUserName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
-        RentalObjectEntity rentalObject = rentalObjectRepository.findById(Long.valueOf(agreementDTO.getObjectID()))
+        RentalObjectEntity rentalObject = rentalObjectRepository.findById(agreementDTO.getObjectID())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Объект не найден"));
 
         if (rentalObject.getPrice() == null) {
@@ -113,6 +112,14 @@ public class AgreementController {
         if (agreementDTO.getTimeBegin() == null || agreementDTO.getTimeEnd() == null
                 || (agreementDTO.getTimeBegin().after(agreementDTO.getTimeEnd())))
             return ResponseEntity.badRequest().body("Invalid dates");
+
+        if (!agreementService.isObjectAvailable(
+                agreementDTO.getObjectID(),
+                agreementDTO.getTimeBegin(),
+                agreementDTO.getTimeEnd()
+        )) {
+            return ResponseEntity.badRequest().body("Кончился!");
+        }
 
         AgreementEntity agreement = new AgreementEntity();
         agreement.setUserID(userCurrent.getUserID());
@@ -130,6 +137,15 @@ public class AgreementController {
         ));
     }
 
+    @GetMapping("/availability/{objectId}")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<Map<String, Object>> getAvailability(
+            @PathVariable Long objectId) {
+
+        Map<String, Object> availability = agreementService.getDailyAvailability(objectId);
+        return ResponseEntity.ok(availability);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?> updateAgreement(
             @PathVariable Long id,
@@ -139,13 +155,13 @@ public class AgreementController {
             AgreementEntity updatedAgreement = agreementService.updateAgreement(id, agreementDTO);
 
             AgreementDTO responseDTO = new AgreementDTO();
+
             responseDTO.setAgreementID(updatedAgreement.getAgreementID());
             responseDTO.setTimeBegin(updatedAgreement.getTimeBegin());
             responseDTO.setTimeEnd(updatedAgreement.getTimeEnd());
             responseDTO.setAgreementInfo(updatedAgreement.getAgreementInfo());
             responseDTO.setSumPrice(updatedAgreement.getSumPrice());
             responseDTO.setUserID(updatedAgreement.getUserID());
-
 
             return ResponseEntity.ok(responseDTO);
         } catch (Exception e) {

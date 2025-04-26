@@ -28,17 +28,11 @@ function App() {
                 <Route path="/register" element={<RegisterForm/>}/>
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/logout" element={<LogoutHandler/>}/>
+                <Route path="/itemrent" element={<ItemRent/>}/>
 
-                <Route path="/admin/users" element={<AdminPanelForUsers />} />
-                <Route path="/admin/items" element={<AdminPanelForItems />} />
-                <Route path="/admin/agreements" element={<AdminPanelForAgreements />} />
+
 
                 {/* Защищенные маршруты */}
-                <Route path="/itemrent" element={
-                    <ProtectedRoute allowedRoles={['GUEST', 'USER']}>
-                        <ItemRent/>
-                    </ProtectedRoute>
-                }/>
 
                 <Route path="/userPanel" element={
                     <ProtectedRoute allowedRoles={'USER'}>
@@ -47,6 +41,24 @@ function App() {
                 }/>
 
                 <Route path="/adminpanel" element={
+                    <ProtectedRoute requiredRole="ADMIN">
+                        <AdminPanel/>
+                    </ProtectedRoute>
+                }/>
+
+                <Route path="/admin/users" element={
+                    <ProtectedRoute requiredRole="ADMIN">
+                        <AdminPanel/>
+                    </ProtectedRoute>
+                }/>
+
+                <Route path="/admin/items" element={
+                    <ProtectedRoute requiredRole="ADMIN">
+                        <AdminPanel/>
+                    </ProtectedRoute>
+                }/>
+
+                <Route path="/admin/agreements" element={
                     <ProtectedRoute requiredRole="ADMIN">
                         <AdminPanel/>
                     </ProtectedRoute>

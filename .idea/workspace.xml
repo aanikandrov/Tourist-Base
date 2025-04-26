@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="system files commit">
+    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="ItemRent css file added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/AboutPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AboutPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/ItemRent.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/ItemRent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/LoginForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/RegisterForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/AboutPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/AboutPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/AdminPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/AdminPanel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/MainPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/ProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/ProtectedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/ItemRent.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/ItemRent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SQL/CLEAR.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/CLEAR.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/SQL/CREATE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/CREATE.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/SQL/INSERT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/INSERT.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/SQL/SELECT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/SELECT.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/AgreementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/AgreementDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RentalObjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RentalObjectDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/AgreementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/AgreementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/RentalObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/RentalObjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/AgreementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/AgreementEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/RentalObjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/RentalObjectEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/AgreementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/AgreementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/AgreementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/AgreementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/RentalObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/RentalObjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +42,8 @@
         <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -52,6 +55,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -78,16 +88,17 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Рабочий стол/demo/react-app",
+    "last_opened_file_path": "D:/Рабочий стол/demo/react-app/src/components/assets",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.16113281",
     "project.structure.side.proportion": "0.24597701",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "configurable.group.editor",
     "spring.configuration.checksum": "fe01ce2a7fbac8fafaed7c982a04e229",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.8\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
@@ -104,11 +115,11 @@
       <recent name="com.example.demo.controllers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Рабочий стол\demo\react-app" />
       <recent name="D:\Рабочий стол\demo\react-app\src\components\assets" />
+      <recent name="D:\Рабочий стол\demo\react-app\src\components\assets\habitations" />
+      <recent name="D:\Рабочий стол\demo\react-app" />
       <recent name="D:\Рабочий стол\demo\react-app\src\components\assets\items" />
       <recent name="D:\Рабочий стол\demo\src\main\java\com\example\demo\Config" />
-      <recent name="D:\Рабочий стол\demo\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Рабочий стол\demo\react-app\src\components\assets\items" />
@@ -118,7 +129,28 @@
       <recent name="D:\Рабочий стол\demo\react-app\src" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.Unnamed">
+    <configuration name="DemoApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.DemoApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <option name="PACKAGE_NAME" value="" />
@@ -138,7 +170,8 @@
       </method>
     </configuration>
     <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
       <method v="2">
@@ -215,7 +248,14 @@
       <workItem from="1744867806526" duration="613000" />
       <workItem from="1744889872675" duration="21588000" />
       <workItem from="1744922329007" duration="3815000" />
-      <workItem from="1745135785512" duration="30822000" />
+      <workItem from="1745135785512" duration="30982000" />
+      <workItem from="1745184251804" duration="2000" />
+      <workItem from="1745437140496" duration="1150000" />
+      <workItem from="1745438547262" duration="3292000" />
+      <workItem from="1745500749532" duration="1113000" />
+      <workItem from="1745562745133" duration="2517000" />
+      <workItem from="1745598423679" duration="9021000" />
+      <workItem from="1745673041839" duration="7526000" />
     </task>
     <task id="LOCAL-00001" summary="Added some files">
       <option name="closed" value="true" />
@@ -265,7 +305,39 @@
       <option name="project" value="LOCAL" />
       <updated>1745163863710</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="All files fixes">
+      <option name="closed" value="true" />
+      <created>1745182022319</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745182022319</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Agreement Update/Delete added">
+      <option name="closed" value="true" />
+      <created>1745439946468</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745439946468</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Item name finder added &amp; Agreement create fixed">
+      <option name="closed" value="true" />
+      <created>1745440588121</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745440588121</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ItemRent css file added">
+      <option name="closed" value="true" />
+      <created>1745441820206</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745441820206</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +365,11 @@
     <MESSAGE value="Commit 1" />
     <MESSAGE value="UserEntity fix" />
     <MESSAGE value="system files commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="system files commit" />
+    <MESSAGE value="All files fixes" />
+    <MESSAGE value="Agreement Update/Delete added" />
+    <MESSAGE value="Item name finder added &amp; Agreement create fixed" />
+    <MESSAGE value="ItemRent css file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ItemRent css file added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

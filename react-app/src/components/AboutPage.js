@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAuth} from '../AuthContext';
-import landscape from './assets/landscape_2.jpg';
+import landscape from './assets/landscape_3_trim.jpg';
 import logo from "./assets/MountainsLogo.png";
 import "./css/AboutPage.css";
 

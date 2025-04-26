@@ -64,15 +64,19 @@ public class SecurityConfig {
                                 "/main"
                         ).permitAll()
                         .requestMatchers("/api/auth/**", "/info").permitAll()
+
+                        .requestMatchers(HttpMethod.GET, "/api/rental/items").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/rental/habitations").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/rental/all").authenticated()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/rental/items").authenticated()
+
                         .requestMatchers(HttpMethod.DELETE, "/api/agreement/**").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/api/users/update").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/api/users/update/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/rental/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/rental/**").authenticated()
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->

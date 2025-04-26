@@ -23,8 +23,12 @@ public class RentalObjectEntity {
     @Column(name = "Object_Info")
     private String objectInfo;
 
+    @Column(name = "Max_Count")
+    private Integer maxCount;
+
     @Column(name = "Price")
     private Integer price;
+
 
     @OneToMany(mappedBy = "rentalObject", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ObjectImageEntity> images = new ArrayList<>();
@@ -51,6 +55,15 @@ public class RentalObjectEntity {
         this.objectType = objectType;
         this.objectInfo = objectInfo;
         //this.imagePath = imagePath;
+        this.price = price;
+    }
+
+    public RentalObjectEntity(Long objectID, String objectName, String objectType, String objectInfo, Integer maxCount, Integer price) {
+        this.objectID = objectID;
+        this.objectName = objectName;
+        this.objectType = objectType;
+        this.objectInfo = objectInfo;
+        this.maxCount = maxCount;
         this.price = price;
     }
 
@@ -99,6 +112,14 @@ public class RentalObjectEntity {
 
     public void setObjectInfo(String objectInfo) {
         this.objectInfo = objectInfo;
+    }
+
+    public Integer getMaxCount() {
+        return maxCount;
+    }
+
+    public void setMaxCount(Integer maxCount) {
+        this.maxCount = maxCount;
     }
 
     public Integer getPrice() {
