@@ -138,7 +138,7 @@ const ItemRent = () => {
 
         const start = new Date(startDate);
         const end = new Date(endDate);
-        // Добавьте проверку на валидность дат
+
         if (isNaN(start.getTime()) || isNaN(end.getTime())) return 0;
 
         const diff = end.getTime() - start.getTime();
@@ -373,11 +373,21 @@ const ItemRent = () => {
                                             const [start, end] = dates;
                                             if (start && isDateDisabled(start)) return;
                                             if (end && isDateDisabled(end)) return;
-                                            setFormData(prev => ({
-                                                ...prev,
-                                                startDate: start ? format(start, "yyyy-MM-dd") : "",
-                                                endDate: end ? format(end, "yyyy-MM-dd") : ""
-                                            }));
+                                            setFormData(prev => {
+                                                const newData = {
+                                                    ...prev,
+                                                    startDate: start ? format(start, "yyyy-MM-dd") : "",
+                                                    endDate: end ? format(end, "yyyy-MM-dd") : ""
+                                                };
+
+                                                // Добавьте принудительное обновление суммы
+                                                if (selectedItem) {
+                                                    const newSum = calculateSum(newData.startDate, newData.endDate, selectedItem.id);
+                                                    setSumPrice(newSum);
+                                                }
+
+                                                return newData;
+                                            });
                                         }}
                                         dayClassName={(date) => {
                                             const dayStr = format(date, "yyyy-MM-dd");
