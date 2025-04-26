@@ -55,7 +55,7 @@ public class AgreementService {
                 .orElseThrow(() -> new RuntimeException("Объект не найден"));
 
         int count = agreementRepository.countConflictingAgreements(objectId, timeBegin, timeEnd);
-        return count < rentalObject.getMaxCount(); // Сравниваем с maxCount
+        return count < rentalObject.getMaxCount();
     }
 
     public Map<String, Object> getDailyAvailability(Long objectId) {

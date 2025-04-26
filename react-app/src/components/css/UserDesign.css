@@ -1,6 +1,4 @@
-/* UserDesign.css - Общие стили для пользовательского интерфейса */
 
-/* Общие стили для верхней панели */
 .top-bar, .topBar {
     background-color: white;
     padding: 1rem 2rem;
@@ -19,19 +17,16 @@
     color: #2d3436;
 }
 
-/* Общие стили для контейнера логотипа */
 .logo-container, .logoContainer {
     display: flex;
     align-items: center;
 }
 
-/* Общие стили для логотипа */
 .logo, .logo-image {
     height: 80px;
     margin-right: auto;
 }
 
-/* Общие стили для текста логотипа */
 .logo-text, .logoText {
     color: #3a86ff;
     font-size: 1.8rem;
@@ -40,13 +35,11 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Общие стили для навигационных кнопок */
 .nav-buttons, .navButtons {
     display: flex;
     gap: 2rem;
 }
 
-/* Общие стили для кнопок навигации */
 .nav-button, .navButton {
     background: none;
     border: none;
@@ -62,7 +55,6 @@
     background-color: #f8f9fa;
 }
 
-/* Общие стили для кнопки дашборда */
 .dashboard-button, .navButton.dashboardButton {
     border: 2px solid #3a86ff;
     border-radius: 25px;
@@ -70,21 +62,18 @@
     font-weight: bold;
 }
 
-/* Общие стили для контейнера кнопок */
 .button-container {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
 }
 
-/* Общие стили для основного контейнера */
 .container, .about-container {
     min-height: 100vh;
     background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
     font-family: 'Open Sans', sans-serif;
 }
 
-/* Общие стили для заголовков секций */
 .section-title {
     text-align: center;
     font-size: 2.5rem;
@@ -93,7 +82,6 @@
     font-weight: 700;
 }
 
-/* Общие стили для футера контактов */
 .contact-footer {
     background-color: #2967d6;
     color: white;
@@ -108,7 +96,6 @@
     margin: 1rem 0;
 }
 
-/* Общие стили для карточек */
 .card, .serviceCard {
     background: white;
     border-radius: 15px;
@@ -116,14 +103,12 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* Общие стили для заголовков */
 .header, .serviceTitle {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1a365d;
 }
 
-/* Общие стили для кнопок */
 .button, .primaryButton, .secondaryButton {
     padding: 1rem 2.5rem;
     border-radius: 30px;

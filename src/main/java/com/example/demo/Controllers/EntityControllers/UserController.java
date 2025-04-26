@@ -47,20 +47,6 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-//    @PutMapping("/update")
-//    public ResponseEntity<?> updateUser(@RequestBody UserUpdateDTO updateDTO,
-//                                        Principal principal) {
-//        try {
-//
-//
-//            String username = principal.getName();
-//            userService.updateUser(username, updateDTO);
-//            return ResponseEntity.ok().build();
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-//        }
-//    }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateUser(
             @PathVariable("id") Long id,

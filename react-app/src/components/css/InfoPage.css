@@ -92,7 +92,6 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .info-content {
         grid-template-columns: 1fr;

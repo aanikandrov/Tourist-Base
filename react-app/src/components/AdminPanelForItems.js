@@ -154,7 +154,6 @@ const AdminPanelForItems = () => {
                 content.map(renderItemContent)
             )}
 
-            {/* Модальное окно создания инвентаря */}
             {isCreateModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">
@@ -198,7 +197,6 @@ const AdminPanelForItems = () => {
                 </div>
             )}
 
-            {/* Модальное окно редактирования инвентаря */}
             {isItemModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">

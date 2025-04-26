@@ -158,7 +158,6 @@ const AdminPanelForAgreements = () => {
                 content.map(renderAgreementContent)
             )}
 
-            {/* Модальное окно создания договора */}
             {isCreateModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">
@@ -226,7 +225,6 @@ const AdminPanelForAgreements = () => {
                 </div>
             )}
 
-            {/* Модальное окно редактирования договора */}
             {isAgreementModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">

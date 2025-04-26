@@ -21,14 +21,12 @@ CREATE TABLE Object_Images (
    Image_ID BIGSERIAL PRIMARY KEY,
    Object_ID BIGINT REFERENCES Rental_Object_Table(Object_ID),
    Image_Path VARCHAR(255) NOT NULL
--- Image_Path VARCHAR(255) DEFAULT 'items/defaultItem.png'
 );
 
 CREATE TABLE Agreement_Table (
     Agreement_ID BIGSERIAL PRIMARY KEY,
     User_ID INTEGER /*REFERENCES User_Table (User_ID)*/,
     Object_ID INTEGER /*REFERENCES Rental_Object_Table (Object_ID)*/,
-    --Agreement_Name VARCHAR(200) NOT NULL,
     Agreement_Info TEXT,
     Time_Begin DATE,
     Time_End DATE,

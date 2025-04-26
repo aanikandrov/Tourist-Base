@@ -12,8 +12,6 @@ export const AuthContext = createContext({
 
 export const useAuth = () => useContext(AuthContext);
 
-
-
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,11 +20,6 @@ export const AuthProvider = ({children}) => {
     const checkAuth = async () => {
         try {
             const token = localStorage.getItem('token');
-            // if (!token) {
-            //     setUser(null);
-            //     setLoading(false);
-            //     return;
-            // }
 
             const response = await fetch('/api/users/me', {
                 headers: {
@@ -65,7 +58,6 @@ export const AuthProvider = ({children}) => {
             return response;
         };
 
-        // Подключите интерцептор к fetch
         const originalFetch = window.fetch;
         window.fetch = async (...args) => {
             const response = await originalFetch(...args);
@@ -82,28 +74,10 @@ export const AuthProvider = ({children}) => {
         setUser(prev => ({ ...prev, ...newUserData }));
     };
 
-
-        // const login = (userData) => {
-        //     setUser({
-        //         userID: userData.userID,
-        //         userName: userData.userName,
-        //         password: userData.password,
-        //         phone: userData.phone,
-        //         birthDate: userData.birthDate,
-        //         userRole: userData.userRole,
-        //     });
-        //
-        //     if (userData.userRole === 'ADMIN') {
-        //         navigate('/adminPage');
-        //     } else {
-        //         navigate('/main');
-        //     }
-        // };
-
-        const login = async (userData) => {
-            localStorage.setItem('token', userData.token);
-            await checkAuth();
-        };
+    const login = async (userData) => {
+        localStorage.setItem('token', userData.token);
+        await checkAuth();
+    };
 
     const logout = async () => {
         try {

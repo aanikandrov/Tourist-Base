@@ -155,7 +155,6 @@ const AdminPanelForUsers = () => {
                 content.map(renderUserContent)
             )}
 
-            {/* Модальное окно создания пользователя */}
             {isCreateModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">
@@ -209,7 +208,6 @@ const AdminPanelForUsers = () => {
                 </div>
             )}
 
-            {/* Модальное окно редактирования пользователя */}
             {isUserModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">

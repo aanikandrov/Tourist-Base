@@ -35,7 +35,6 @@ const InfoPage = () => {
     useEffect(() => {
         if (!mapRef.current) return;
 
-        // Стиль маркера
         const iconStyle = new Style({
             image: new Icon({
                 anchor: [0.5, 1],
@@ -44,7 +43,6 @@ const InfoPage = () => {
             })
         });
 
-        // Создаем векторный слой с маркером
         const vectorLayer = new VectorLayer({
             source: new VectorSource({
                 features: [
@@ -56,7 +54,6 @@ const InfoPage = () => {
             style: iconStyle
         });
 
-        // Инициализация карты
         const map = new Map({
             target: mapRef.current,
             layers: [
@@ -71,7 +68,6 @@ const InfoPage = () => {
             })
         });
 
-        // Обработчик клика по маркеру
         map.on('click', (event) => {
             const feature = map.forEachFeatureAtPixel(
                 event.pixel,
@@ -85,20 +81,17 @@ const InfoPage = () => {
             }
         });
 
-        // Изменение курсора при наведении
         map.on('pointermove', (event) => {
             map.getTargetElement().style.cursor = map.hasFeatureAtPixel(event.pixel)
                 ? 'pointer'
                 : '';
         });
 
-        // Очистка при размонтировании
         return () => map.setTarget(undefined);
     }, []);
 
     return (
         <div className="container">
-            {/* Шапка как в MainPage */}
             <div className="topBar">
                 <div className="logoContainer">
                     <img src={logo} alt="Логотип Турбазы" className="logo" />
@@ -114,9 +107,7 @@ const InfoPage = () => {
                 </div>
             </div>
 
-            {/* Основной контент */}
             <div className="info-content">
-                {/* Левая колонка с контактами */}
                 <div className="contacts-column">
                     <h2 className="contacts-title">Контактная информация</h2>
                     <div className="contacts-list">
@@ -139,7 +130,6 @@ const InfoPage = () => {
                     </div>
                 </div>
 
-                {/* Правая колонка с картой */}
                 <div className="map-column">
 
                     <div ref={mapRef} className="map-container"></div>

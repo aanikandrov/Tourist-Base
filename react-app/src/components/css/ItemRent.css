@@ -1,21 +1,12 @@
-/* ItemRent.css - Стили для компонента бронирования */
 
-/* Основной контейнер */
 .item-rent-container {
     min-height: 100vh;
     background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
     font-family: 'Open Sans', sans-serif;
-    /*padding: 2rem;*/
-
     align-items: center;
     justify-content: center;
-
-
-    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
-    font-family: 'Open Sans', sans-serif;
 }
 
-/* Сетка элементов */
 .items-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -25,7 +16,6 @@
     padding: 2rem;
 }
 
-/* Карточка объекта */
 .item-card {
     background: white;
     border-radius: 15px;
@@ -41,7 +31,6 @@
     height: 300px;
 }
 
-/* Для модального окна */
 .modal-image-section.habitation .modal-image {
     width: 400px;
     height: 400px;
@@ -62,7 +51,6 @@
     margin: 0 auto;
 }
 
-/* Изображение в карточке */
 .item-image {
     width: 200px;
     height: 200px;
@@ -75,7 +63,6 @@
     margin-top: 1rem;
 }
 
-/* Заголовок объекта */
 .item-title {
     font-size: 1.3rem;
     font-weight: 600;
@@ -83,7 +70,6 @@
     margin-bottom: 0.5rem;
 }
 
-/* Стили для модального окна */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -103,14 +89,12 @@
     padding: 2rem;
     width: 800px;
     height: 600px;
-    /*min-height: 400px;*/
     display: flex;
     overflow: auto;
     gap: 2rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* Секции модального окна */
 .modal-image-section {
     flex: 1;
     display: flex;
@@ -142,8 +126,6 @@
     box-shadow: 0 4px 15px rgba(58, 134, 255, 0.3);
 }
 
-
-
 .modal-form-section .date-range-group {
     display: flex;
     gap: 1rem;
@@ -153,8 +135,6 @@
 .modal-form-section .date-range-group .rental-input {
     width: 55%;
 }
-
-
 
 .nav-button-arrow {
     position: relative;
@@ -177,15 +157,11 @@
     border-color: #3a86ff;
 }
 
-/* Стили для поиска */
 .search-input {
     width: 50%;
     padding: 1rem;
     max-width: 1200px;
-
-
     align-items: center;
-
     border: 2px solid #e9ecef;
     margin-top: 1rem;
     margin-left: 5rem;
@@ -205,25 +181,6 @@
     border-color: #3a86ff;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .modal-content {
-        flex-direction: column;
-        width: 90%;
-        min-height: auto;
-    }
-
-    .modal-form-section {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
-/* Календарь - квадратный контейнер */
 .react-datepicker {
     max-width: 350px;
     border: 1px solid #e0e0e0 !important;
@@ -231,26 +188,23 @@
     border-radius: 8px !important;
 }
 
-/* Заголовок календаря */
 .react-datepicker__header {
     background: none !important;
     border: none !important;
     padding: 0 8px 12px 8px;
 }
 
-/* Сетка дней - 7 колонок */
 .react-datepicker__month {
     display: flex !important;
     flex-direction: column !important;
     gap: 4px !important;
 }
+
 .react-datepicker__week {
     display: flex !important;
     gap: 4px !important;
 }
 
-
-/* Дни недели - 7 колонок */
 .react-datepicker__day-names {
     display: flex !important;
     gap: 4px !important;
@@ -263,7 +217,6 @@
     text-align: center;
 }
 
-/* Стиль дня */
 .react-datepicker__day {
     width: 44px !important;
     height: 44px !important;
@@ -274,7 +227,6 @@
     margin: 0 !important;
 }
 
-/* Стили для статусов */
 .react-datepicker__day--available {
     background-color: #e8f5e9 !important;
     color: #2e7d32 !important;
@@ -287,16 +239,25 @@
     opacity: 0.5 !important;
 }
 
-
-/* Выбранный диапазон */
 .react-datepicker__day--in-range {
     background-color: #3a86ff !important;
     color: white !important;
     border-radius: 4px !important;
 }
 
-/* Текущий день */
 .react-datepicker__day--today {
     font-weight: bold;
     border: 2px solid #3a86ff !important;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        min-height: auto;
+    }
+
+    .modal-form-section {
+        width: 100%;
+    }
 }

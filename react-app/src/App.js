@@ -10,7 +10,6 @@ import MainPage from './components/MainPage';
 import ItemRent from "./components/ItemRent";
 import AboutPage from "./components/AboutPage";
 import InfoPage from "./components/InfoPage";
-import AdminPanel from "./components/AdminPanel";
 import LogoutHandler from './components/LogoutHandler';
 import AdminPanelForUsers from "./components/AdminPanelForUsers";
 import AdminPanelForItems from "./components/AdminPanelForItems";
@@ -21,7 +20,6 @@ function App() {
     return (
         <AuthProvider>
             <Routes>
-                {/* Публичные маршруты */}
                 <Route path="/about" element={<AboutPage/>}/>
                 <Route path="/info" element={<InfoPage/>}/>
                 <Route path="/login" element={<LoginForm/>}/>
@@ -31,40 +29,32 @@ function App() {
                 <Route path="/itemrent" element={<ItemRent/>}/>
 
 
-
-                {/* Защищенные маршруты */}
-
                 <Route path="/userPanel" element={
                     <ProtectedRoute allowedRoles={'USER'}>
                         <UserPanel/>
                     </ProtectedRoute>
                 }/>
 
-                <Route path="/adminpanel" element={
-                    <ProtectedRoute requiredRole="ADMIN">
-                        <AdminPanel/>
-                    </ProtectedRoute>
-                }/>
-
                 <Route path="/admin/users" element={
                     <ProtectedRoute requiredRole="ADMIN">
-                        <AdminPanel/>
+                        <AdminPanelForUsers/>
                     </ProtectedRoute>
                 }/>
 
                 <Route path="/admin/items" element={
                     <ProtectedRoute requiredRole="ADMIN">
-                        <AdminPanel/>
+                        <AdminPanelForItems/>
                     </ProtectedRoute>
                 }/>
 
                 <Route path="/admin/agreements" element={
                     <ProtectedRoute requiredRole="ADMIN">
-                        <AdminPanel/>
+                        <AdminPanelForAgreements/>
                     </ProtectedRoute>
                 }/>
 
                 <Route path="*" element={<Navigate to="/main"/>}/>
+
             </Routes>
         </AuthProvider>
     );

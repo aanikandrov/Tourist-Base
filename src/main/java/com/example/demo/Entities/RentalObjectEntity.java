@@ -54,7 +54,6 @@ public class RentalObjectEntity {
         this.objectName = objectName;
         this.objectType = objectType;
         this.objectInfo = objectInfo;
-        //this.imagePath = imagePath;
         this.price = price;
     }
 
