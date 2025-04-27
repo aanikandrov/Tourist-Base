@@ -85,7 +85,7 @@ const AboutPage = () => {
                         className="nav-button dashboard-button"
                         onClick={() => navigate('/userPanel')}
                     >
-                        Личный кабинет
+                        {user ? "Личный кабинет" : "Войти"}
                     </button>
                 </div>
             </div>

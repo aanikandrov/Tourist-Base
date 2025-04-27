@@ -90,6 +90,7 @@ public class UserController {
             newUser.setUserPassword(passwordEncoder.encode(registrationDTO.getPassword()));
             newUser.setPhone(registrationDTO.getPhone());
             newUser.setBirthDate(registrationDTO.getBirthDate());
+            //newUser.setUserRole(registrationDTO.getUserRole());
             newUser.setUserRole("USER");
 
             userService.addUser(newUser);

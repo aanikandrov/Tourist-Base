@@ -82,6 +82,21 @@ public class RentalObjectController {
         return ResponseEntity.ok(created);
     }
 
+    @PostMapping("/habitations")
+    public ResponseEntity<RentalObjectEntity> createHabitation(
+            @RequestBody RentalObjectEntity rentalObject
+    ) {
+        rentalObject.setObjectID(null);
+        rentalObject.setObjectType("Habitation");
+
+        if (rentalObject.getMaxCount() == null) {
+            rentalObject.setMaxCount(1);
+        }
+
+        RentalObjectEntity created = rentalObjectService.addRentalObject(rentalObject);
+        return ResponseEntity.ok(created);
+    }
+
     @PutMapping("/{id}/{newName}")
     public ResponseEntity<String> updateObjectName(
             @PathVariable Long id,

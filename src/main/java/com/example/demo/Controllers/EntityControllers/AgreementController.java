@@ -93,7 +93,7 @@ public class AgreementController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserEntity user = (UserEntity) authentication.getPrincipal();
 
-        UserEntity userCurrent = userRepository.findByuserName(user.getUserName())
+        UserEntity userCurrent = userRepository.findByUserName(user.getUserName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
         RentalObjectEntity rentalObject = rentalObjectRepository.findById(agreementDTO.getObjectID())

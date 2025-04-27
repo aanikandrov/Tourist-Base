@@ -41,7 +41,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid LoginDTO loginDto) {
-        UserEntity user = userRepository.findByuserName(loginDto.getUserName())
+        UserEntity user = userRepository.findByUserName(loginDto.getUserName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found"));
 
         if (!passwordEncoder.matches(loginDto.getPassword(), user.getUserPassword())) {
@@ -61,8 +61,16 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegistrationDTO registrationDto) {
-        if (userRepository.findByuserName(registrationDto.getUserName()).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username is already taken");
+        if (userRepository.findByUserName(registrationDto.getUserName()).isPresent()) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("message", "Username is already taken"));
+        }
+
+        if (userRepository.existsByPhone(registrationDto.getPhone())) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("message", "Phone is already taken"));
         }
 
         UserEntity newUser = new UserEntity();

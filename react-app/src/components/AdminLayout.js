@@ -1,4 +1,4 @@
-// AdminLayout.js
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/AdminPanel.css';
@@ -10,13 +10,13 @@ const AdminLayout = ({ children, activeTab, headerTitle, showCreateButton, onCre
         <div className="admin-container">
             <div className="admin-sidebar">
                 <h2 className="admin-sidebarTitle">Админ-панель</h2>
-                {['user', 'item', 'agreement'].map(tab => (
+                {['user', 'item', 'agreement', 'habitation'].map(tab => (
                     <button
                         key={tab}
                         className={`admin-tabButton ${activeTab === tab ? 'admin-activeTab' : ''}`}
                         onClick={() => navigate(`/admin/${tab}s`)}
                     >
-                        {{ user: 'Пользователи', item: 'Инвентарь', agreement: 'Договоры' }[tab]}
+                        {{ user: 'Пользователи', item: 'Инвентарь', agreement: 'Договоры', habitation: 'Проживание' }[tab]}
                     </button>
                 ))}
                 <button className="admin-tabButton admin-logoutButton" onClick={() => navigate('/logout')}>

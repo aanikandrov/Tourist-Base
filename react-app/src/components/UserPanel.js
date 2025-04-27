@@ -5,6 +5,10 @@ import logo from "./assets/MountainsLogo.png";
 import { useNavigate } from 'react-router-dom';
 import './css/UserPanel.css';
 
+import ConfirmDialog from './ConfirmDialog';
+
+import { MessageBox } from './MessageBox';
+
 const UserPanel = () => {
     const { user, updateUser } = useAuth();
     const navigate = useNavigate();
@@ -17,6 +21,14 @@ const UserPanel = () => {
         phone: '',
         birthDate: ''
     });
+    const [initialUserData, setInitialUserData] = useState({});
+
+    const [message, setMessage] = useState(null);
+    const [messageType, setMessageType] = useState('info');
+
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+    const [selectedAgreementId, setSelectedAgreementId] = useState(null);
+
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -32,6 +44,14 @@ const UserPanel = () => {
                     ? new Date(userData.birthDate).toISOString().split('T')[0]
                     : '';
 
+                const initialData = {
+                    userID: userData.userID,
+                    userName: userData.userName,
+                    phone: userData.phone || '',
+                    birthDate: formattedBirthDate,
+                    userRole: userData.userRole
+                };
+
                 setLocalUserData({
                     userID: userData.userID,
                     userName: userData.userName,
@@ -42,7 +62,7 @@ const UserPanel = () => {
 
             } catch (error) {
                 console.error('Ошибка загрузки данных:', error);
-                alert('Не удалось загрузить данные');
+                showMessage("Ошибка загрузки данных!", 'error');
             }
         };
 
@@ -65,7 +85,7 @@ const UserPanel = () => {
             setAgreements(response.data);
         } catch (error) {
             console.error('Ошибка загрузки договоров:', error);
-            alert('Не удалось загрузить список договоров');
+            showMessage("Ошибка загрузки договоров", 'error');
         }
     };
 
@@ -76,6 +96,14 @@ const UserPanel = () => {
             [name]: value
         }));
     };
+
+
+    const showMessage = (text, type = 'info') => {
+        setMessage(text);
+        setMessageType(type);
+        setTimeout(() => setMessage(null), 5000);
+    };
+
 
     const handleSave = async () => {
         try {
@@ -97,44 +125,72 @@ const UserPanel = () => {
                 userID: response.data.userID
             });
 
-            setIsEditing(false);
-            alert('Изменения успешно сохранены!');
+            if (response.data.phone && !/^\d{11}$/.test(response.data.phone)) {
+                showMessage("Телефон должен быть формата 88005553535 (только цифры)", 'warning');
+                return;
+            }
 
+            const minDate = new Date();
+            minDate.setFullYear(minDate.getFullYear() - 18);
+            if (new Date(localUserData.birthDate) > minDate) {
+                showMessage("Вам должно быть больше 18 лет", 'warning');
+                return;
+            }
+
+            setIsEditing(false);
+            showMessage("Изменения успешно сохранены!", 'success');
         } catch (error) {
             console.error('Ошибка обновления:', error.response?.data || error.message);
-            alert('Не удалось сохранить изменения: ' + error.response?.data?.message);
+            showMessage('Не удалось сохранить изменения: ' + error.response?.data?.message, 'error');
         }
     };
 
     const handleCancel = () => {
-        setLocalUserData({
-            ...localUserData,
-            userName: user.userName,
-            phone: user.phone,
-            birthDate: user.birthDate?.split('T')[0] || ''
-        });
+
+        setLocalUserData(initialUserData);
         setIsEditing(false);
     };
 
     const handleDeleteAgreement = async (agreementId) => {
-        if (!window.confirm("Вы уверены, что хотите отменить договор?")) return;
+        setSelectedAgreementId(agreementId);
+        setShowConfirmDialog(true);
+    };
 
+    const confirmDelete = async () => {
+        setShowConfirmDialog(false);
         try {
-            await axios.delete(`/api/agreement/${agreementId}`, {
+            await axios.delete(`/api/agreement/${selectedAgreementId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
             });
             fetchAgreements();
-            alert("Договор успешно отменен");
+            showMessage("Договор успешно отменён!", 'success');
         } catch (error) {
             console.error('Ошибка удаления:', error);
-            alert("Не удалось отменить договор");
+            showMessage("Не удалось отменить договор!", 'error');
         }
     };
 
     return (
         <div className="container">
+
+            {message && (
+                <MessageBox
+                    message={message}
+                    type={messageType}
+                    onClose={() => setMessage(null)}
+                />
+            )}
+
+            {showConfirmDialog && (
+                <ConfirmDialog
+                    message="Вы уверены, что хотите отменить договор?"
+                    onConfirm={confirmDelete}
+                    onCancel={() => setShowConfirmDialog(false)}
+                />
+            )}
+
             <div className="top-bar">
                 <div className="logo-container">
                     <img src={logo} alt="Логотип Турбазы" className="logo" />
@@ -183,7 +239,7 @@ const UserPanel = () => {
                 {activeTab === 'profile' ? (
                     <>
                         <div className="input-group">
-                            <label className="input-label">userName:</label>
+                            <label className="input-label">Имя пользователя:</label>
                             <input
                                 className="input-field"
                                 name="userName"
@@ -194,7 +250,7 @@ const UserPanel = () => {
                         </div>
 
                         <div className="input-group">
-                            <label className="input-label">Phone:</label>
+                            <label className="input-label">Телефон:</label>
                             <input
                                 className="input-field"
                                 name="phone"
@@ -206,7 +262,7 @@ const UserPanel = () => {
                         </div>
 
                         <div className="input-group">
-                            <label className="input-label">Birth Date:</label>
+                            <label className="input-label">Дата рождения:</label>
                             <input
                                 className="input-field"
                                 name="birthDate"
@@ -236,7 +292,7 @@ const UserPanel = () => {
                                                 Сохранить изменения
                                             </button>
                                             <button
-                                                className="button cancel-button"
+                                                className="button user-cancel-button"
                                                 onClick={handleCancel}
                                             >
                                                 Отмена
@@ -245,7 +301,7 @@ const UserPanel = () => {
                                     )}
                                 </div>
                                 <button
-                                    className="button cancel-button logout-button"
+                                    className="button user-cancel-button logout-button"
                                     onClick={() => navigate('/logout')}
                                 >
                                     Выйти
@@ -271,7 +327,7 @@ const UserPanel = () => {
                                             )}
                                         </div>
                                         <button
-                                            className="button cancel-button"
+                                            className="button user-cancel-button"
                                             onClick={() => handleDeleteAgreement(agreement.agreementID)}
                                         >
                                             Отменить

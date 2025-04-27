@@ -1,0 +1,61 @@
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.message-box.info {
+    background-color: #3a86ff;
+    color: white;
+}
+
+.message-box.error {
+    background-color: #ff3a3a;
+    color: white;
+}
+
+.message-box.success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.message-box.warning {
+    background-color: #f39c12;
+    color: white;
+}
+
+.message-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 0 5px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

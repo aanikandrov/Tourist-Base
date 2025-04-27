@@ -1,10 +1,7 @@
 import {Navigate, useLocation} from 'react-router-dom';
 import {useAuth} from '../AuthContext';
-
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import MainPage from './MainPage';
-import LoginPage from './LoginForm';
+
 
 const ProtectedRoute = ({children, allowedRoles, requiredRole}) => {
     const {user, loading} = useAuth();

@@ -17,7 +17,7 @@ WHERE user_role != 'ADMIN';
 
 UPDATE user_table
 SET user_role = 'ADMIN'
-WHERE user_table.user_name = 'ad';
+WHERE user_table.user_name = 'admin';
 
 ALTER SEQUENCE rental_object_table_object_id_seq RESTART WITH 1;
 SELECT setval('rental_object_table_object_id_seq', (SELECT MAX(object_id) FROM rental_object_table));

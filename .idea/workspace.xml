@@ -8,28 +8,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="ItemRent css file added">
+    <list default="true" id="9c2a2c22-684e-4414-ab2c-42ba9d4cd6a4" name="Changes" comment="small fixes in many files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/AboutPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AboutPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/AdminLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AdminLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/AdminPanelForAgreements.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AdminPanelForAgreements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/AdminPanelForItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AdminPanelForItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/AdminPanelForUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/AdminPanelForUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/InfoPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/InfoPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/ItemRent.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/ItemRent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/ProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/ProtectedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/RegisterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/UserPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/UserPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/AdminPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/AdminPanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/components/css/ItemRent.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/ItemRent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-app/src/components/css/UserPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/css/UserPanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/SQL/CLEAR.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/CLEAR.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/SQL/CREATE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/CREATE.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/SQL/INSERT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/INSERT.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SQL/SELECT.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SQL/SELECT.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RentalObjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RentalObjectDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/UserDetailsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/UserDetailsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/RegistrationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/UserUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DTO/UserUpdateDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/AgreementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/AgreementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/RentalObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/RentalObjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/RentalObjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Entities/RentalObjectEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/AgreementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/AgreementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/AgreementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/AgreementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/RentalObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/RentalObjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/EntityControllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,41 +84,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Рабочий стол/demo/react-app/src/components/assets",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.16113281",
-    "project.structure.side.proportion": "0.24597701",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "configurable.group.editor",
-    "spring.configuration.checksum": "fe01ce2a7fbac8fafaed7c982a04e229",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.8\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Рабочий стол/demo/react-app/src/components/assets&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.16113281&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24597701&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;fe01ce2a7fbac8fafaed7c982a04e229&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.8\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.demo.controllers" />
@@ -255,7 +264,10 @@
       <workItem from="1745500749532" duration="1113000" />
       <workItem from="1745562745133" duration="2517000" />
       <workItem from="1745598423679" duration="9021000" />
-      <workItem from="1745673041839" duration="7526000" />
+      <workItem from="1745673041839" duration="14667000" />
+      <workItem from="1745691527128" duration="376000" />
+      <workItem from="1745692570421" duration="722000" />
+      <workItem from="1745736534672" duration="14599000" />
     </task>
     <task id="LOCAL-00001" summary="Added some files">
       <option name="closed" value="true" />
@@ -337,7 +349,31 @@
       <option name="project" value="LOCAL" />
       <updated>1745441820206</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="large changes">
+      <option name="closed" value="true" />
+      <created>1745680946262</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745680946262</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ItemRent fixes">
+      <option name="closed" value="true" />
+      <created>1745681313992</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745681313992</updated>
+    </task>
+    <task id="LOCAL-00013" summary="small fixes in many files">
+      <option name="closed" value="true" />
+      <created>1745682122641</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745682122641</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +405,10 @@
     <MESSAGE value="Agreement Update/Delete added" />
     <MESSAGE value="Item name finder added &amp; Agreement create fixed" />
     <MESSAGE value="ItemRent css file added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ItemRent css file added" />
+    <MESSAGE value="large changes" />
+    <MESSAGE value="ItemRent fixes" />
+    <MESSAGE value="small fixes in many files" />
+    <option name="LAST_COMMIT_MESSAGE" value="small fixes in many files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

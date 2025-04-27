@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAuth} from '../AuthContext';
 import logo from "./assets/MountainsLogo.png";
-
+import './css/UserDesign.css';
 
 const LoginForm = () => {
     const [userName, setUsername] = useState('');
@@ -72,14 +72,20 @@ const LoginForm = () => {
                     />
                 </div>
 
-                {success && <div className="success">✅ Login successful! Redirecting...</div>}
+                {success && <div className="success">✅ Перенаправление на главную страницу...</div>}
                 {error && <div className="error">❌ {error}</div>}
 
                 <button type="submit">Войти</button>
 
 
-                <button type="submit" onClick={() => navigate('/register')}>Регистрация</button>
-                <button type="submit" onClick={() => navigate('/main')}>На главную</button>
+                <button type="submit" onClick={() => navigate('/register')}>
+                    Регистрация
+                </button>
+                <button type="submit"
+                        onClick={() => navigate('/main')}
+                        className = "user-cancel-button">
+                    Войти как гость
+                </button>
 
             </form>
         </div>

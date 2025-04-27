@@ -15,6 +15,8 @@ import "./css/MainPage.css";
 import "./css/UserDesign.css";
 import "./css/ItemRent.css";
 
+import { MessageBox } from './MessageBox';
+
 const ItemRent = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -41,6 +43,9 @@ const ItemRent = () => {
     const [availability, setAvailability] = useState({});
     const [isLoadingAvailability, setIsLoadingAvailability] = useState(false);
 
+    const [message, setMessage] = useState(null);
+    const [messageType, setMessageType] = useState('info');
+
     useEffect(() => {
         const headers = {};
         const token = localStorage.getItem('token');
@@ -66,6 +71,7 @@ const ItemRent = () => {
                     images: item.imagePaths?.length > 0
                         ? item.imagePaths.map(path => require(`./assets/${path}`))
                         : [defaultImage]
+
                 }));
                 setItems(itemsWithImages);
 
@@ -77,7 +83,7 @@ const ItemRent = () => {
             })
             .catch(error => {
                 console.error('Ошибка загрузки данных:', error);
-                alert('Не удалось загрузить данные об объектах');
+                showMessage('Не удалось загрузить данные об объектах', 'error');
             });
     }, [currentType]);
 
@@ -89,6 +95,11 @@ const ItemRent = () => {
     };
 
 
+    const showMessage = (text, type = 'info') => {
+        setMessage(text);
+        setMessageType(type);
+        setTimeout(() => setMessage(null), 5000);
+    };
 
 
     const getAvailability = async (objectId) => {
@@ -207,7 +218,7 @@ const ItemRent = () => {
         });
 
         if (hasUnavailable) {
-            alert("Выбранные даты содержат недоступные периоды!");
+            showMessage("Выбранные даты содержат недоступные периоды!", 'warning');
             return;
         }
 
@@ -230,7 +241,7 @@ const ItemRent = () => {
                 if (!response.ok) {
                     return response.text().then(text => {
                         if (text.includes("Предмет кончился!")) {
-                            alert("Предмет кончился!");
+                            showMessage("Предмет кончился!", 'warning');
                             throw new Error("Items dates conflict");
                         } else {
                             throw new Error(`HTTP ${response.status}: ${text}`);
@@ -242,18 +253,27 @@ const ItemRent = () => {
             .then(data => {
                 console.log('Success:', data);
                 handleCloseModal();
-                alert('Бронирование успешно создано!');
+                showMessage('Бронирование успешно создано!', 'success');
             })
             .catch(error => {
                 if (error.message !== "Items dates conflict") {
                     console.error('Error:', error);
-                    alert(error.message);
+                    showMessage(error.message, 'error');
                 }
             });
     };
 
     return (
         <div className="item-rent-container">
+
+            {message && (
+                <MessageBox
+                    message={message}
+                    type={messageType}
+                    onClose={() => setMessage(null)}
+                />
+            )}
+
             <div className="top-bar">
                 <div className="logo-container">
                     <img src={logo} alt="Логотип Турбазы" className="logo" />
@@ -274,7 +294,7 @@ const ItemRent = () => {
                         Контакты
                     </button>
                     <button className="navButton dashboardButton" onClick={() => navigate('/userPanel')}>
-                        Личный кабинет
+                        {user ? "Личный кабинет" : "Войти"}
                     </button>
                 </div>
             </div>
@@ -327,6 +347,8 @@ const ItemRent = () => {
             {isModalOpen && selectedItem && (
                 <div className="modal-overlay">
                     <div className="modal-content">
+
+
                         <div className="modal-image-section">
                             <h2 className="modal-header">{selectedItem.text}</h2>
                             <div className={`modal-image-section ${currentType === 'habitations' ? 'habitation' : ''}`}>
@@ -347,13 +369,14 @@ const ItemRent = () => {
                                         </button>
                                     )}
                                 </div>
-                            </div>
-                            <div className="price-badge">
-                                Цена за день: {itemPrices[selectedItem.id]} руб.
-                            </div>
 
-                            <div className="price-badge">
-                                Описание: {selectedItem.objectInfo}
+                                <div className="price-badge">
+                                    Цена за день: {itemPrices[selectedItem.id]} руб.
+                                </div>
+
+                                <div className="price-badge">
+                                    Описание: {selectedItem.objectInfo}
+                                </div>
                             </div>
                         </div>
 
@@ -443,7 +466,7 @@ const ItemRent = () => {
                             </div>
 
                             <div className="modal-buttons">
-                                <button className="cancel-button" onClick={handleCloseModal}>
+                                <button className="user-cancel-button" onClick={handleCloseModal}>
                                     Отмена
                                 </button>
                                 <button className="save-button" onClick={handleSubmit}>

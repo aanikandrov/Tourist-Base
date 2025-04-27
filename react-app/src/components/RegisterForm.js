@@ -14,6 +14,19 @@ const RegisterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (phone && !/^\d{11}$/.test(phone)) {
+            setMessage('❌ Телефон должен содержать 11 цифр');
+            return;
+        }
+
+        const minDate = new Date();
+        minDate.setFullYear(minDate.getFullYear() - 18);
+        if (new Date(birthDate) > minDate) {
+            setMessage('❌ Вам должно быть больше 18 лет');
+            return;
+        }
+
         try {
             const response = await fetch('/api/auth/register', {
                 method: 'POST',
@@ -28,16 +41,27 @@ const RegisterForm = () => {
                 }),
             });
 
-            const data = await response.json();
-
-            if (response.ok) {
-                setMessage('✅ Good! Redirecting to login...');
-                setTimeout(() => navigate('/login'), 2000);
-            } else {
-                setMessage(`❌ Error: ${data.error || 'Registration failed'}`);
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                if (response.status === 400 && errorData.message) {
+                    if (errorData.message.includes("Username is already taken")) {
+                        setMessage("❌ Имя пользователя уже занято");
+                    } else if (errorData.message.includes("Phone is already taken")) {
+                        setMessage("❌ Этот номер телефона уже используется");
+                    } else {
+                        setMessage(`❌ Ошибка: ${errorData.message}`);
+                    }
+                } else {
+                    setMessage(`❌ Ошибка сервера...`);
+                }
+                return;
             }
+
+            const data = await response.json();
+            setMessage('✅ Перенаправление на страницу входа...');
+            setTimeout(() => navigate('/login'), 2000);
         } catch (err) {
-            setMessage('❌ Connection error');
+            setMessage('❌ Ошибка соединения с сервером');
         }
     };
 
@@ -99,11 +123,10 @@ const RegisterForm = () => {
 
                 {message && <div className="message">{message}</div>}
 
-                <button type="submit"
+                <button type="button"
                         onClick={() => navigate('/login')}
-                        className = "cancel-button"
+                        className = "user-cancel-button"
                 >
-
                     Назад
                 </button>
 

@@ -1,6 +1,7 @@
 package com.example.demo.Config;
 
 import com.example.demo.Entities.UserEntity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -64,12 +65,10 @@ public class SecurityConfig {
                                 "/main"
                         ).permitAll()
                         .requestMatchers("/api/auth/**", "/info").permitAll()
-
                         .requestMatchers(HttpMethod.GET, "/api/rental/items").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/rental/habitations").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/rental/all").authenticated()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-
                         .requestMatchers(HttpMethod.DELETE, "/api/agreement/**").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/api/users/update").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/api/users/update/**").hasRole("ADMIN")
@@ -133,8 +132,16 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://localhost:3000"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With"));
-        config.setExposedHeaders(List.of("Authorization"));
+        config.setAllowedHeaders(List.of(
+                "Authorization",
+                "Content-Type",
+                "X-Requested-With",
+                "Access-Control-Allow-Origin"
+        ));
+        config.setExposedHeaders(List.of(
+                "Authorization",
+                "Access-Control-Allow-Origin"
+        ));
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);
 

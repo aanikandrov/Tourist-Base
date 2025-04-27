@@ -36,6 +36,7 @@ public class UserService {
         user.setUserName(updateDTO.getUserName());
         user.setPhone(updateDTO.getPhone());
         user.setBirthDate(updateDTO.getBirthDate());
+        user.setUserRole(updateDTO.getUserRole());
 
         userRepository.save(user);
     }
@@ -47,7 +48,7 @@ public class UserService {
     }
 
     public Optional<UserEntity> getUserByName(String userName) {
-        return userRepository.findByuserName(userName);
+        return userRepository.findByUserName(userName);
     }
 
     public UserEntity addUserByName(UserEntity newUser) {
@@ -56,12 +57,13 @@ public class UserService {
 
     @Transactional
     public UserEntity updateUser(String userName, UserUpdateDTO updateDTO) {
-        UserEntity user = userRepository.findByuserName(userName)
+        UserEntity user = userRepository.findByUserName(userName)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         user.setUserName(updateDTO.getUserName());
         user.setPhone(updateDTO.getPhone());
         user.setBirthDate(updateDTO.getBirthDate());
+        user.setUserRole(updateDTO.getUserRole());
 
         userRepository.save(user);
 

@@ -103,7 +103,7 @@ const InfoPage = () => {
                     <button className="navButton" onClick={() => navigate('/itemrent')}>Бронирование</button>
                     <button className="navButton" onClick={() => navigate('/about')}>О нас</button>
                     <button className="navButton bold" onClick={() => navigate('/info')}>Контакты</button>
-                    <button className="navButton dashboardButton" onClick={() => navigate('/userPanel')}>Личный кабинет</button>
+                    <button className="navButton dashboardButton" onClick={() => navigate('/userPanel')}>{user ? "Личный кабинет" : "Войти"}</button>
                 </div>
             </div>
 

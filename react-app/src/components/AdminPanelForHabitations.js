@@ -9,7 +9,7 @@ import AdminLayout from './AdminLayout';
 import './css/AdminPanel.css';
 
 
-const AdminPanelForItems = () => {
+const AdminPanelForHabitations = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [content, setContent] = useState([]);
@@ -31,15 +31,15 @@ const AdminPanelForItems = () => {
     const fetchData = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('/api/rental/items', {
+            const response = await axios.get('/api/rental/habitations', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
             });
             setContent(response.data);
         } catch (error) {
-            console.error('Ошибка загрузки инвентаря:', error);
-            showMessage("Ошибка загрузки инвентаря", 'error');
+            console.error('Ошибка загрузки проживаний:', error);
+            showMessage("Ошибка загрузки проживаний", 'error');
             setContent([]);
         } finally {
             setIsLoading(false);
@@ -74,17 +74,17 @@ const AdminPanelForItems = () => {
 
     const handleCreateSubmit = async () => {
         try {
-            await axios.post('/api/rental/items', newItemData, {
+            await axios.post('/api/rental/habitations', newItemData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
             });
             fetchData();
             handleCloseCreateModal();
-            showMessage("Предмет успешно создан", 'success');
+            showMessage("Проживание успешно создан", 'success');
         } catch (error) {
             console.error('Ошибка создания:', error);
-            showMessage("Не удалось создать предмет", 'error');
+            showMessage("Не удалось создать проживание", 'error');
         }
     };
 
@@ -98,10 +98,10 @@ const AdminPanelForItems = () => {
 
             fetchData();
             handleCloseItemModal();
-            showMessage("Предмет успешно удалён", 'success');
+            showMessage("Проживание успешно удалён", 'success');
         } catch (error) {
             console.error('Ошибка удаления:', error);
-            showMessage("Не удалось удалить предмет", 'error');
+            showMessage("Не удалось удалить проживание", 'error');
         }
     };
 
@@ -158,15 +158,15 @@ const AdminPanelForItems = () => {
 
     return (
         <AdminLayout
-            activeTab="item"
-            headerTitle="Инвентарь"
+            activeTab="habitation"
+            headerTitle="Проживание"
             showCreateButton
             onCreate={handleCreateItem}
         >
             <div className="admin-search-container">
                 <input
                     type="text"
-                    placeholder="Поиск по названию предмета..."
+                    placeholder="Поиск по названию проживания..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="admin-search-input"
@@ -234,7 +234,7 @@ const AdminPanelForItems = () => {
             {isItemModalOpen && (
                 <div className="admin-modalOverlay">
                     <div className="admin-modalContent">
-                        <h2 className="admin-modalHeader">Редактирование инвентаря #{editData.objectID}</h2>
+                        <h2 className="admin-modalHeader">Редактирование проживания #{editData.objectID}</h2>
                         <div className="admin-inputGroup">
                             <label>Название:</label>
                             <input
@@ -285,4 +285,4 @@ const AdminPanelForItems = () => {
     );
 };
 
-export default AdminPanelForItems;
+export default AdminPanelForHabitations;

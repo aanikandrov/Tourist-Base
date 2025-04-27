@@ -3,6 +3,7 @@ package com.example.demo.Controllers.DTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
 
@@ -15,11 +16,11 @@ public class RegistrationDTO {
     private String password;
 
     @NotBlank(message = "phone is required")
+    @Pattern(regexp = "^\\d{11}$", message = "Телефон должен содержать 11 цифр")
     private String phone;
 
     @NotNull(message = "BirthDate is required")
     private LocalDate birthDate;
-
 
     public String getUserName() {
         return userName;
@@ -52,4 +53,6 @@ public class RegistrationDTO {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
+
+
 }

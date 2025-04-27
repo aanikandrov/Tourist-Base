@@ -3,7 +3,7 @@ CREATE TABLE User_Table (
     User_Name VARCHAR(200) NOT NULL,
     User_Password VARCHAR(68),
     User_Role VARCHAR(50),
-    Phone VARCHAR(20) UNIQUE,
+    Phone VARCHAR(11) UNIQUE CHECK (Phone ~ '^\d{11}$'),
     Birth_Date DATE
 );
 

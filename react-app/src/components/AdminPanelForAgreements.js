@@ -4,6 +4,7 @@ import { useAuth } from '../AuthContext';
 import axios from 'axios';
 import AdminLayout from './AdminLayout';
 import './css/AdminPanel.css';
+import { MessageBox } from './MessageBox';
 
 const AdminPanelForAgreements = () => {
     const { user } = useAuth();
@@ -21,6 +22,14 @@ const AdminPanelForAgreements = () => {
         agreementInfo: ''
     });
 
+    const [message, setMessage] = useState(null);
+    const [messageType, setMessageType] = useState('info');
+    const showMessage = (text, type = 'info') => {
+        setMessage(text);
+        setMessageType(type);
+        setTimeout(() => setMessage(null), 5000);
+    };
+
     const fetchData = async () => {
         setIsLoading(true);
         try {
@@ -32,7 +41,7 @@ const AdminPanelForAgreements = () => {
             setContent(response.data);
         } catch (error) {
             console.error('Ошибка загрузки договоров:', error);
-            alert('Не удалось загрузить данные договоров');
+            showMessage('Не удалось загрузить данные договоров', 'error');
             setContent([]);
         } finally {
             setIsLoading(false);
@@ -67,10 +76,10 @@ const AdminPanelForAgreements = () => {
             });
             fetchData();
             handleCloseAgreementModal();
-            alert('Договор успешно удален!');
+            showMessage('Договор успешно удален!', 'success');
         } catch (error) {
             console.error('Ошибка удаления:', error);
-            alert('Не удалось удалить договор');
+            showMessage('Не удалось удалить договор', 'error');
         }
     };
 
@@ -83,10 +92,10 @@ const AdminPanelForAgreements = () => {
             });
             fetchData();
             handleCloseCreateModal();
-            alert('Договор успешно создан!');
+            showMessage('Договор успешно создан!', 'success');
         } catch (error) {
             console.error('Ошибка создания:', error);
-            alert('Не удалось создать договор');
+            showMessage('Не удалось создать договор', 'error');
         }
     };
 
@@ -119,10 +128,10 @@ const AdminPanelForAgreements = () => {
 
             fetchData();
             handleCloseAgreementModal();
-            alert('Изменения успешно сохранены!');
+            showMessage('Изменения успешно сохранены!', 'success');
         } catch (error) {
             console.error('Ошибка сохранения:', error);
-            alert('Не удалось сохранить изменения');
+            showMessage('Не удалось сохранить изменения', 'error');
         }
     };
 
@@ -145,7 +154,7 @@ const AdminPanelForAgreements = () => {
     return (
         <AdminLayout
             activeTab="agreement"
-            headerTitle="Все договоры"
+            headerTitle="Договоры"
             showCreateButton
             onCreate={handleCreateAgreement}
         >
