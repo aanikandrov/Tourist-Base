@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import logo from "./assets/MountainsLogo.png";
-import './css/UserDesign.css';
+import './css/MainDesign.css';
 
 const RegisterForm = () => {
     const [userName, setUsername] = useState('');

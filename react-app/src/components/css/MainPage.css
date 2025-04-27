@@ -1,5 +1,5 @@
 
-.navButton.bold {
+.nav-button.bold {
     font-weight: bold;
 }
 
@@ -45,7 +45,7 @@
     flex-wrap: wrap;
 }
 
-.primaryButton:hover, .secondaryButton:hover {
+.primary-button:hover, .secondary-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(58,134,255,0.6);
 }
@@ -76,7 +76,7 @@
     gap: 2rem;
 }
 
-.serviceCard {
+.service-card {
     background: white;
     border-radius: 15px;
     padding: 2rem;

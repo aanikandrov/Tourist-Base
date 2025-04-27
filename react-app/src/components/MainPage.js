@@ -5,7 +5,7 @@ import {useAuth} from '../AuthContext';
 import logo from "./assets/MountainsLogo.png";
 
 import "./css/MainPage.css";
-import "./css/UserDesign.css";
+import "./css/MainDesign.css";
 
 const MainPage = () => {
     const {user, logout, loading } = useAuth();
@@ -27,33 +27,33 @@ const MainPage = () => {
 
     return (
         <div className="container">
-            <div className="topBar">
-                <div className="logoContainer">
+            <div className="top-bar">
+                <div className="logo-container">
                     <img src={logo} alt="Логотип Турбазы" className="logo" />
-                    <span className="logoText">Турбаза Курсовая</span>
+                    <span className="logo-text">Турбаза Курсовая</span>
                 </div>
 
-                <div className="navButtons">
+                <div className="nav-buttons">
                     <button
-                        className="navButton bold"
+                        className="nav-button bold"
                         onClick={() => navigate('/main')}
                     >
                         Главная
                     </button>
                     <button
-                        className="navButton"
+                        className="nav-button"
                         onClick={() => navigate('/itemrent')}
                     >
                         Бронирование
                     </button>
                     <button
-                        className="navButton"
+                        className="nav-button"
                         onClick={() => navigate('/about')}
                     >
                         О нас
                     </button>
                     <button
-                        className="navButton"
+                        className="nav-button"
                         onClick={() => navigate('/info')}
                     >
                         Контакты
@@ -61,7 +61,7 @@ const MainPage = () => {
 
 
                     <button
-                        className="navButton dashboardButton"
+                        className="nav-button dashboard-button"
                         onClick={handleDashboardClick}
                     >
                         {user ? "Личный кабинет" : "Войти"}
@@ -82,15 +82,15 @@ const MainPage = () => {
                     Наши услуги
                 </h2>
                 <div className="featuresGrid">
-                    <div className="serviceCard">
+                    <div className="service-card">
                         <h3 className="serviceTitle">Инвентарь</h3>
                         <p>Профессиональное снаряжение для альпинизма и туризма</p>
                     </div>
-                    <div className="serviceCard">
+                    <div className="service-card">
                         <h3 className="serviceTitle">Проживание</h3>
                         <p>Кемпинг и уютные домики с видом на горные вершины</p>
                     </div>
-                    <div className="serviceCard">
+                    <div className="service-card">
                         <h3 className="serviceTitle">Походы</h3>
                         <p>Организованные туры с опытными гидами</p>
                     </div>

@@ -12,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {useAuth} from "../AuthContext";
 
 import "./css/MainPage.css";
-import "./css/UserDesign.css";
+import "./css/MainDesign.css";
 import "./css/ItemRent.css";
 
 import { MessageBox } from './MessageBox';
@@ -180,7 +180,6 @@ const ItemRent = () => {
         const {name, value} = e.target;
         setFormData(prev => {
             const newData = {...prev, [name]: value};
-            // Добавьте проверку на существование selectedItem
             if (selectedItem) {
                 const newSum = calculateSum(newData.startDate, newData.endDate, selectedItem.id);
                 setSumPrice(newSum);
@@ -281,19 +280,19 @@ const ItemRent = () => {
                 </div>
 
                 <div className="nav-buttons">
-                    <button className="navButton" onClick={() => navigate('/main')}>
+                    <button className="nav-button" onClick={() => navigate('/main')}>
                         Главная
                     </button>
-                    <button className="navButton bold" onClick={() => navigate('/itemrent')}>
+                    <button className="nav-button bold" onClick={() => navigate('/itemrent')}>
                         Бронирование
                     </button>
-                    <button className="navButton" onClick={() => navigate('/about')}>
+                    <button className="nav-button" onClick={() => navigate('/about')}>
                         О нас
                     </button>
-                    <button className="navButton" onClick={() => navigate('/info')}>
+                    <button className="nav-button" onClick={() => navigate('/info')}>
                         Контакты
                     </button>
-                    <button className="navButton dashboardButton" onClick={() => navigate('/userPanel')}>
+                    <button className="nav-button dashboard-button" onClick={() => navigate('/userPanel')}>
                         {user ? "Личный кабинет" : "Войти"}
                     </button>
                 </div>
@@ -403,7 +402,6 @@ const ItemRent = () => {
                                                     endDate: end ? format(end, "yyyy-MM-dd") : ""
                                                 };
 
-                                                // Добавьте принудительное обновление суммы
                                                 if (selectedItem) {
                                                     const newSum = calculateSum(newData.startDate, newData.endDate, selectedItem.id);
                                                     setSumPrice(newSum);

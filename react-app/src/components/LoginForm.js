@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAuth} from '../AuthContext';
 import logo from "./assets/MountainsLogo.png";
-import './css/UserDesign.css';
+import './css/MainDesign.css';
 
 const LoginForm = () => {
     const [userName, setUsername] = useState('');

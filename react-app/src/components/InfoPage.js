@@ -92,18 +92,18 @@ const InfoPage = () => {
 
     return (
         <div className="container">
-            <div className="topBar">
-                <div className="logoContainer">
+            <div className="top-bar">
+                <div className="logo-container">
                     <img src={logo} alt="Логотип Турбазы" className="logo" />
-                    <span className="logoText">Турбаза Курсовая</span>
+                    <span className="logo-text">Турбаза Курсовая</span>
                 </div>
 
-                <div className="navButtons">
-                    <button className="navButton" onClick={() => navigate('/main')}>Главная</button>
-                    <button className="navButton" onClick={() => navigate('/itemrent')}>Бронирование</button>
-                    <button className="navButton" onClick={() => navigate('/about')}>О нас</button>
-                    <button className="navButton bold" onClick={() => navigate('/info')}>Контакты</button>
-                    <button className="navButton dashboardButton" onClick={() => navigate('/userPanel')}>{user ? "Личный кабинет" : "Войти"}</button>
+                <div className="nav-buttons">
+                    <button className="nav-button" onClick={() => navigate('/main')}>Главная</button>
+                    <button className="nav-button" onClick={() => navigate('/itemrent')}>Бронирование</button>
+                    <button className="nav-button" onClick={() => navigate('/about')}>О нас</button>
+                    <button className="nav-button bold" onClick={() => navigate('/info')}>Контакты</button>
+                    <button className="nav-button dashboard-button" onClick={() => navigate('/userPanel')}>{user ? "Личный кабинет" : "Войти"}</button>
                 </div>
             </div>
 
