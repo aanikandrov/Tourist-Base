@@ -3,6 +3,9 @@ Web-приложение для туристической базы
 Java, React, PostgreSQL
 
 
+![image](https://github.com/user-attachments/assets/6b2528b3-f631-4fc5-9e07-6487a891deb6)
+
+
 
 ![image](https://github.com/user-attachments/assets/3b002538-3acf-40a1-b718-c5f802164b1f)
 
@@ -14,4 +17,5 @@ Java, React, PostgreSQL
 
 
 
+![image](https://github.com/user-attachments/assets/7021f6b6-ce48-4c46-9ab0-d158f554b067)
 
